@@ -87,15 +87,16 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 		
 		webDriver.getLoginPage().verifyFoundPageByURL(30, webDriver.getLoginPage().pageURL, "LoginPage");
 		Reporter.log("Step 3:Verified load web page" + webDriver.getLoginPage().pageURL, true);
-
-		webDriver.getLoginPage().login("isai.galarza@gmail.com", "freddy");
+		
+		String password = webDriver.getPasswordVaultFactory().retreivePassword("password");
+		webDriver.getLoginPage().login("isai.galarza@gmail.com", password);
 		Reporter.log("Step 4:Log in with user", true);
 		
 		Reporter.log("Step 5:Open Web Page " + webDriver.getLoginPage().pageURL, true);
-
-		webDriver.getLoginPage().verifyFoundPage(5, "http://dev.digitaltolk.com/");
+		
+		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getLoginPage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Home page");
 		Reporter.log("Expect 1:Verified Home Page : URL Home Page", true);
-
+		
 		Reporter.log("Step 6: Close Browser.", true);
 		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
 		Reporter.log("Login Check: Passed", true);
