@@ -1,0 +1,165 @@
+package com.test.elance.visitor;
+
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
+import org.testng.Reporter;
+import org.testng.SkipException;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.common.elance.elanceBaseTestNGDeclaration;
+
+@Listeners({ /*com.selenium.listners.reportFactoryListner.class,*/com.selenium.listners.oTestTestNGTestListener.class})
+public class VerifyJobPostingTest extends elanceBaseTestNGDeclaration {
+
+	static {
+		try {
+			resources = ResourceBundle.getBundle("tests.oTestDataDrivenTests",
+					Locale.getDefault());
+		} catch (MissingResourceException mre) {
+			System.out.println("tests.oTestDataDrivenTests not found: " + mre);
+			System.exit(0);
+		}
+	}
+
+	
+	public VerifyJobPostingTest() {
+		spreadsheet = new String("elance.findWorkTest.testRunXLS");
+		workbook = new String("elance.findWorkTest.testRunWorkSheet");
+		table = new String("elance.findWorkTest.testRunTableLabel");
+		
+	}
+	/**
+	 * 
+	 * Created by: Ligia Barrera <br>
+	 * Date Created: 4/16/2014. <br>
+	 * Updates: <br>
+	 * Test Case : Verify there is a new posting in the last hour. <br>
+	 * Priority High. <br>
+	 * Status: Verified. <br>
+	 * Automated: Yes. <br>
+	 * JiraProject: <br>
+	 * JiraIssue: <br>
+	 * Execution Time: 1 minute. <br>
+	 * Setup: none. <br>
+	 * <b>Steps:</b> <br>
+	 * Step 1: Launch web browser (FireFox,IE, Chrome). <br>
+	 * Step 2: Open Web Page https://www.elance.com/r/jobs/ <br>
+	 * Step 4: type the keyword <br>
+	 * Step 5: Click button go <br>
+	 * Step 6: Verify there is a new posting in the last hour. <br>
+	 * Step 7: Close browser. <br>
+	 * <b>Expected results:</b> <br>
+	 * There is a new posting in the last hour. <br>
+	 * 
+	 * @param runTest
+	 *            - true/false to skip test
+	 * @param browser
+	 *            - firefox/chrome/IE
+	 * @param Platform
+	 *            - Windows/Linux/Mac
+	 * @param version
+	 *            - Browser version
+	 * @param remote
+	 *            - yes/no/proxy
+	 * @param URL
+	 *            - stage/dev/prod URL
+	 * @param description
+	 *            - description of the test
+	 * @param tableDataName
+	 *            - name of the table to extract the data
+	 * @param xlFile
+	 *            - Name of the XL file for extra data
+	 * @param xlSheet
+	 *            - work book name for extra data
+	 * @param xlTable
+	 *            - name of the table in the work book
+	 * @return None.
+	 * @exception None.
+	 * @author Ligia
+	 * @version 1.0
+	 */
+	@Test(enabled = true, dataProvider = "oTestBaseTestNGDeclarationDataProvider",groups={"liveSite"}, description = "verifyJobPostingTest")
+	public void verifyJobPostingTest(String testCount, String runTest,
+			String browser, String platform, String version, String remote,
+			String elanceURL, String description, String keyword,
+			String xlFile, String xlSheet, String xlTable) {
+
+		//
+		// Do we want to process this row of data?
+		//
+		if (runTest.toLowerCase().contains("no")) {
+			throw new SkipException("Skip");
+		}
+		//
+		// Setup your webdriver
+		//
+		if (webDriver == null) {
+			throw new SkipException("No webDriver skipping current test");
+		}
+		Reporter.log("created webDriver class");
+
+		driver = webDriver.createWebDriver(remote, version, platform, browser,
+				"verifyJobPostingTest");
+
+		if (driver == null) {
+			throw new SkipException("No Web Driver");
+		}
+		//
+		// Send TestNG some Testing information
+		//
+		testName = new String("Start the verifyJobPostingTest on " + platform
+				+ " using " + browser + " browser, version " + version);
+		Reporter.log("Start the verifyJobPostingTest on " + platform
+				+ " using " + browser + " browser, version " + version, true);
+
+		Reporter.log("Step 1: Launch web browser (FireFox,IE, Chrome)");
+		//
+		// Open the web page
+		//
+		driver.manage().deleteAllCookies();
+		driver.get(elanceURL);
+		Reporter.log("Step 2: Open Web Page: " + elanceURL, true);
+
+		webDriver.getElanceFindWorkPage().verifyFoundPageByURL(10,
+				webDriver.getElanceFindWorkPage().pageURL,
+				"verifyJobPostingTest");
+
+		
+		Reporter.log("KeyWord: " + keyword, true);
+
+		webDriver.getElanceFindWorkPage().enterSearchJobText(keyword);
+		Reporter.log("Step 3: Type the Keyword", true);
+
+		webDriver.getElanceFindWorkPage().clickGoButtonSelector();
+		Reporter.log("Step 4: Click on the Go button", true);
+
+		webDriver.getElanceFindWorkPageWithResultsPage().verifyFoundPage(10, webDriver.getElanceFindWorkPageWithResultsPage().pageURL);
+		Reporter.log("Step 5: Verify there is a new posting in the last hour.",
+				true);
+
+		int count = 0;
+		count = webDriver.getElanceFindWorkPageWithResultsPage().getCountOfJobPosted();
+
+		Reporter.log("count of job posted the last hour = " + count, true);
+		
+		try{
+			webDriver.ASSERT_TRUE(count > 0,"There are a new posting in the last hour.","FindWorkWithResults");
+			webDriver.getSlackFactory().postSunnyMessage(count +" Elance jobs posted in last hour within the first page.", "#at-results","Elance.LiveSite"); 
+			
+	
+		}catch(AssertionError e){
+			webDriver.getSlackFactory().postRainyMessage("No new posted jobs were found in the last hour.", "#release-elance","Elance.LiveSite");
+			webDriver.getSlackFactory().postRainyMessage("No new posted jobs were found in the last hour.", "#at-results","Elance.LiveSite");
+			
+		}
+		Reporter.log("verifyJobPostingTest Passed  using " + platform+ " with, browser " + browser, true);
+		Reporter.log("sauceLab results: "+ webDriver.obtainTestStatusInformation(), true);
+
+			
+			
+	}
+
+}

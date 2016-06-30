@@ -1,0 +1,4874 @@
+/*
+ * JobProposalPage.java	1.0 2014/05/25
+ *
+ * Copyright (c) 2001 by David Ramer, Inc. All Rights Reserved.
+ *
+ * David Ramer grants you ("Licensee") a non-exclusive, royalty free, license to use,
+ * modify and redistribute this software in source and binary code form,
+ * provided that i) this copyright notice and license appear on all copies of
+ * the software; and ii) Licensee does not utilize the software in a manner
+ * which is disparaging to David Ramer.
+ *
+ * This software is provided "AS IS," without a warranty of any kind. ALL
+ * EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+ * IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+ * NON-INFRINGEMENT, ARE HEREBY EXCLUDED. David Ramer AND ITS LICENSORS SHALL NOT BE
+ * LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+ * OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL David Ramer OR ITS
+ * LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT,
+ * INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER
+ * CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF
+ * OR INABILITY TO USE SOFTWARE, EVEN IF DRamer HAS BEEN ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGES.
+ *
+ * This software is not designed or intended for use in on-line control of
+ * aircraft, air traffic, aircraft navigation or aircraft communications; or in
+ * the design, construction, operation or maintenance of any nuclear
+ * facility. Licensee represents and warrants that it will not use or
+ * redistribute the Software for such purposes.
+ */
+package com.pageDeclarations.elance.main;
+
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import com.common.oTest.oTestBasePageDeclaration;
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
+
+@SuppressWarnings({ "deprecation" })
+public class JobProposalPage extends oTestBasePageDeclaration {
+	private String editJobLink = "editJobLink";
+	private String inviteFreelancersLink = "inviteFreelancersLink";
+	private String moreDetailsLink = "moreDetailsLink";
+	private String allProposalTab = "allProposalTab";
+	private String hiddenTab = "hiddenTab";
+	private String invitedTab = "invitedTab";
+	private String selectButton = "selectButton";
+	private String editTermsButton = "editTermsButton";
+	private String hideButton = "hideButton";
+	private String unhideButton = "unhideButton";
+
+	private String popUpOtherInviteOption = "popUpOtherInviteOption";
+	private String inputTextBox = "inputTextBox";
+
+	private String continueButton = "continueButton";
+	private String cancelButton = "cancelButton";
+
+	private String jobId = "jobIdText";
+	private String filterDropDown = "filterDropDown";
+	private String sortDropDown = "sortDropDown";
+	private String viewDropDown = "viewDropDown";
+	private String allProposalLinkText = "allProposalLinkText";
+	private String myRatingLinkText = "myRatingLinkText";
+	private String invitedLinkText = "invitedLinkText";
+	private String newProposalsLinkText = "newProposalsLinkText";
+	private String levelLinkText = "levelLinkText";
+	private String feedbackLinkText = "feedbackLinkText";
+	private String proposalAmountLinkText = "proposalAmountLinkText";
+	private String locationLinkText = "locationLinkText";
+	private String submitDateLatestLinkText = "submitDateLatestLinkText";
+	private String submitDateEarliestLinkText = "submitDateEarliestLinkText";
+	private String elanceLevelLinkText = "elanceLevelLinkText";
+	private String earningsLinkText = "earningsLinkText";
+	private String myRatingHighLinkText = "myRatingHighLinkText";
+	private String myRatingLowLinkText = "myRatingLowLinkText";
+	private String proposalAmountHighLinkText = "proposalAmountHighLinkText";
+	private String proposalAmountLowLinkText = "proposalAmountLowLinkText";
+	private String compactLinkText = "compactLinkText";
+	private String expandedLinkText = "expandedLinkText";
+	private String fullLinkText = "fullLinkText";
+	private String ResetButton = "ResetButton";
+	private String ratedOneRadioButton = "ratedOneRadioButton";
+	private String ratedTwoRadioButton = "ratedTwoRadioButton";
+	private String ratedThreeRadioButton = "ratedThreeRadioButton";
+	private String ratedFourRadioButton = "ratedFourRadioButton";
+	private String ratedFiveRadioButton = "ratedFiveRadioButton";
+	private String levelTextBox = "levelTextBox";
+	private String goButton = "goButton";
+	private String filterFeedbackDropDown = "filterFeedbackDropDown";
+	private String fiveStarLinkText = "fiveStarLinkText";
+	private String fourStarLinkText = "fourStarLinkText";
+	private String threeStarlinkText = "threeStarlinkText";
+	private String belowDropDown = "belowDropDown";
+	private String belowLinkText = "belowLinkText";
+	private String aboveLinkText = "aboveLinkText";
+	private String amountTextBox = "amountTextBox";
+	private String goAmountButton = "goAmountButton";
+	private String locationDropDown = "locationDropDown";
+	private String proposalNameLinkText = "proposalNameLinkText";
+	private String proposalCountryText = "proposalCountryText";
+	private String proposalCategoryText = "proposalCategoryText";
+	private String proposalJobsLinkText = "proposalJobsLinkText";
+	private String proposalEarningLinkText = "proposalEarningLinkText";
+	private String proposalStarLintText = "proposalStarLintText";
+	private String proposalPriceText = "proposalPriceText";
+	private String collapseProposalLinkText = "collapseProposalLinkText";
+	private String expandProposalLinkText = "expandProposalLinkText";
+	private String printLinkText = "printLinkText";
+
+	private String locationInfoText = "locationInfoText";
+	private String typeOfWorkInfoText = "typeOfWorkInfoText";
+	private String jobDetailInfoText = "jobDetailInfoText";
+	private String descriptionInfoText = "descriptionInfoText";
+	private String categoryAndSubCategory = "categoryAndSubCategory";
+	//
+	// Job Options
+	//
+	private String jobActionsDropDown = "jobActionsDropDown";
+	private String extendBidding = "extendBidding";
+	private String endBidding = "endBidding";
+	private String cancelProject = "cancelProject";
+	private String relistJob = "relistJob";	
+	private String locationExpect="locationExpect";
+	
+	private String closeDialog = "CloseDialog";
+	
+	private String addTeamMembersLink = "addTeamMembersLink";
+	private String verifyNowButton = "verifyNowButton";
+<<<<<<< HEAD
+	private String jobTitleText = "jobTitleText";
+=======
+>>>>>>> 9fc64b884953ce51507564b8b56809bc44578f2a
+	//
+	//pop up for Verify account of Role user
+	//
+	private String popUpTitleText = "popUpTitleText";
+	private String popUpMessageText = "popUpMessageText";
+	private String verifyAccountPopUpCloseButton = "verifyAccountPopUpCloseButton";
+	
+	private String inviteMatchingCandidatesButton = "inviteMatchingCandidatesButton";
+	private String featureJobPostButton = "featureJobPostButton";
+	private String searchAndInviteFreelancerButton = "searchAndInviteFreelancerButton";
+
+	private String noProposalMessageText = "noProposalMessageText";
+	private String noProposalMessage2Text = "noProposalMessage2Text";
+	private String thereIsProposalMessageText = "thereIsProposalMessageText";		
+
+	static ResourceBundle resources;
+
+	static {
+		try {
+			resources = ResourceBundle.getBundle("elance.main.JobProposalPage",
+					Locale.getDefault());
+		} catch (MissingResourceException mre) {
+			System.out.println("JobProposalPage.properties not found: " + mre);
+			System.exit(0);
+		}
+	}
+
+	public JobProposalPage(WebDriver driver) {
+
+		super(driver, resources);
+		pageTitle = new String(resources.getString("pageTitle"));
+		pageURL = new String(resources.getString("pageURL"));
+	}
+
+	/**
+	 * @Describe Click on Edit Job link
+	 * @version 1.0
+	 * @author Brayam
+	 * @exception MissingResourceException
+	 */
+	 
+	public void clickEditJobLink() {
+		try {
+			WebElement element = findElement(editJobLink);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+	/**
+	 * @describe This function Demonstrates iseditJobLinkEnabled(). <br>
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isEditJobLinkEnabled() {
+		try {
+			WebElement element = findElement(editJobLink);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @Describe This function Demonstrates iseditJobLinkDisplayed(). <br>
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isEditJobLinkDisplayed() {
+		try {
+			WebElement element = findElement(editJobLink);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @Describe This function Demonstrates isinviteFreelancersLinkEnabled(). <br>
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isInviteFreelancersLinkEnabled() {
+		try {
+			WebElement element = findElement(inviteFreelancersLink);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @Describe This function Demonstrates isinviteFreelancersLinkDisplayed(). <br>
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isInviteFreelancersLinkDisplayed() {
+		try {
+			WebElement element = findElement(inviteFreelancersLink);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @Describe Click on invite freelancer link
+	 * @version 1.0
+	 * @author Ligia Barrera
+	 * @exception MissingResourceException
+	 */
+	public void clickInviteFreelancersLink() {
+		try {
+			WebElement element = findElement(inviteFreelancersLink);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates ismoreDetailsLinkEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isMoreDetailsLinkEnabled() {
+		try {
+			WebElement element = findElement(moreDetailsLink);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates ismoreDetailsLinkDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isMoreDetailsLinkDisplayed() {
+		try {
+			WebElement element = findElement(moreDetailsLink);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isallProposalTabEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isAllProposalTabEnabled() {
+		try {
+			WebElement element = findElement(allProposalTab);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isallProposalTabDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isAllProposalTabDisplayed() {
+		try {
+			WebElement element = findElement(allProposalTab);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates ishiddenTabEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isHiddenTabEnabled() {
+		try {
+			WebElement element = findElement(hiddenTab);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates ishiddenTabDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isHiddenTabDisplayed() {
+		try {
+			WebElement element = findElement(hiddenTab);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isinvitedTabEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isInvitedTabEnabled() {
+		try {
+			WebElement element = findElement(invitedTab);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isinvitedTabDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isInvitedTabDisplayed() {
+		try {
+			WebElement element = findElement(invitedTab);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Click on Other Invite Option
+	 * 
+	 * @author Ligia Barrera
+	 * @exception MissingResourceException
+	 */
+	public void clickIpopUpOtherInviteOption() {
+		try {
+			WebElement element = findElement(popUpOtherInviteOption);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function demonstrates enterInputTextBox(). <br>
+	 * Function indicates to enter freelancer user name <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @version 1.0
+	 */
+	public void enterInputTextBox(String value) {
+		try {
+			WebElement element = findElement(inputTextBox);
+			element.sendKeys(value);
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * Click on Continue Button
+	 * 
+	 * @author Ligia Barrera
+	 * @exception MissingResourceException
+	 */
+	public void clickIContinueButton() {
+		try {
+			WebElement element = findElement(continueButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * Click on Cancel Button
+	 * 
+	 * @author Ligia Barrera
+	 * @exception MissingResourceException
+	 */
+	public void clickICancelButton() {
+		try {
+			WebElement element = findElement(cancelButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/** This function Demonstrates isinviteFreelancersLinkEnabled(). <br>
+	 * @exception Catches Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isSelectButtonEnabled() {
+		try {
+			WebElement element = findElement(selectButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isinviteFreelancersLinkDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isSelectButtonDisplayed() {
+		try {
+			waitForElementPresent(selectButton, 100);
+			WebElement element = findElement(selectButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Click on invite freelancer link
+	 * 
+	 * @author Ligia Barrera
+	 * @exception MissingResourceException
+	 */
+	public void clickSelectButton() {
+		try {
+			WebElement element = findElement(selectButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method makes clickEditTermsButton(). <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Brayam
+	 * @version 1.0
+	 */
+	public void clickEditTermsButton() {
+		try {
+			WebElement element = findElement(editTermsButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method makes clickAllProposalTab(). <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Brayam
+	 * @version 1.0
+	 */
+	public void clickAllProposalTab() {
+		try {
+			WebElement element = findElement(allProposalTab);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method makes clickHiddenTab(). <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Brayam
+	 * @version 1.0
+	 */
+
+	public void clickHiddenTab() {
+		try {
+			WebElement element = findElement(hiddenTab);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method makes clickHideButton(). <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Brayam
+	 * @version 1.0
+	 */
+
+	public void clickHideButton() {
+		try {
+			WebElement element = findElement(hideButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method makes clickUnhideButton(). <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Brayam
+	 * @version 1.0
+	 */
+
+	public void clickUnhideButton() {
+		try {
+			WebElement element = findElement(unhideButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method makes click on moreDetailsLink. <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @author Ligia
+	 * @version 1.0
+	 */
+
+	public void clickMoreDetailLink() {
+		try {
+			WebElement element = findElement(moreDetailsLink);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	
+	/**
+	 * This function Demonstrates islocationExpectEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author wilma cruz
+	 * @version 1.0
+	 */
+	public boolean islocationExpectEnabled() {
+		try {
+			WebElement element = findElement(locationExpect);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 * This method get JobId texts. <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @author Ligia
+	 * @version 1.0
+	 */
+
+	public String getJobIdText() {
+		try {
+			WebElement element = findElement(jobId);
+			return element.getText();
+
+		} catch (Exception e) {
+			return "";
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFilterDropDownEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFilterDropDownEnabled() {
+		try {
+			WebElement element = findElement(filterDropDown);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method selects an Item from a dropdown element
+	 * selectFilterDropDown(String value). <br>
+	 * 
+	 * @param String
+	 *            value
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void selectFilterDropDown(String value) {
+		try {
+			WebElement element = findElement(filterDropDown);
+			new Select(element).selectByVisibleText(value);
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFilterDropDownDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFilterDropDownDisplayed() {
+		try {
+			WebElement element = findElement(filterDropDown);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementLocationLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickFilterDropDown() {
+		try {
+			WebElement element = findElement(filterDropDown);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isSortDropDownEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isSortDropDownEnabled() {
+		try {
+			WebElement element = findElement(sortDropDown);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method selects an Item from a dropdown element
+	 * selectSortDropDown(String value). <br>
+	 * 
+	 * @param String
+	 *            value
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void selectSortDropDown(String value) {
+		try {
+			WebElement element = findElement(sortDropDown);
+			new Select(element).selectByVisibleText(value);
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isSortDropDownDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isSortDropDownDisplayed() {
+		try {
+			WebElement element = findElement(sortDropDown);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element element clickSortDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickSortDropDown() {
+		try {
+			WebElement element = findElement(sortDropDown);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isViewDropDownEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isViewDropDownEnabled() {
+		try {
+			WebElement element = findElement(viewDropDown);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method selects an Item from a dropdown element
+	 * selectViewDropDown(String value). <br>
+	 * 
+	 * @param String
+	 *            value
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void selectViewDropDown(String value) {
+		try {
+			WebElement element = findElement(viewDropDown);
+			new Select(element).selectByVisibleText(value);
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isViewDropDownDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isViewDropDownDisplayed() {
+		try {
+			WebElement element = findElement(viewDropDown);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element clickViewDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickViewDropDown() {
+		try {
+			WebElement element = findElement(viewDropDown);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isAllProposalLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isAllProposalLinkTextEnabled() {
+		try {
+			WebElement element = findElement(allProposalLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementAllProposalLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickAllProposalLinkText() {
+		try {
+			WebElement element = findElement(allProposalLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isAllProposalLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isAllProposalLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(allProposalLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isMyRatingLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isMyRatingLinkTextEnabled() {
+		try {
+			WebElement element = findElement(myRatingLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementMyRatingLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickMyRatingLinkText() {
+		try {
+			WebElement element = findElement(myRatingLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isMyRatingLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isMyRatingLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(myRatingLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isInvitedLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isInvitedLinkTextEnabled() {
+		try {
+			WebElement element = findElement(invitedLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementInvitedLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickInvitedLinkText() {
+		try {
+			WebElement element = findElement(invitedLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isInvitedLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isInvitedLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(invitedLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isNewProposalsLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isNewProposalsLinkTextEnabled() {
+		try {
+			WebElement element = findElement(newProposalsLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementNewProposalsLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickNewProposalsLinkText() {
+		try {
+			WebElement element = findElement(newProposalsLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isNewProposalsLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isNewProposalsLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(newProposalsLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLevelLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLevelLinkTextEnabled() {
+		try {
+			WebElement element = findElement(levelLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementLevelLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickLevelLinkText() {
+		try {
+			WebElement element = findElement(levelLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLevelLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLevelLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(levelLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFeedbackLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFeedbackLinkTextEnabled() {
+		try {
+			WebElement element = findElement(feedbackLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementFeedbackLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickFeedbackLinkText() {
+		try {
+			WebElement element = findElement(feedbackLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFeedbackLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFeedbackLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(feedbackLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalAmountLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalAmountLinkTextEnabled() {
+		try {
+			WebElement element = findElement(proposalAmountLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementProposalAmountLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickProposalAmountLinkText() {
+		try {
+			WebElement element = findElement(proposalAmountLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalAmountLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalAmountLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalAmountLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLocationLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLocationLinkTextEnabled() {
+		try {
+			WebElement element = findElement(locationLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementLocationLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickLocationLinkText() {
+		try {
+			WebElement element = findElement(locationLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLocationLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLocationLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(locationLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isSubmitDateLatestLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isSubmitDateLatestLinkTextEnabled() {
+		try {
+			WebElement element = findElement(submitDateLatestLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementSubmitDateLatestLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickSubmitDateLatestLinkText() {
+		try {
+			WebElement element = findElement(submitDateLatestLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isSubmitDateLatestLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isSubmitDateLatestLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(submitDateLatestLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isSubmitDateEarliestLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isSubmitDateEarliestLinkTextEnabled() {
+		try {
+			WebElement element = findElement(submitDateEarliestLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementSubmitDateEarliestLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickSubmitDateEarliestLinkText() {
+		try {
+			WebElement element = findElement(submitDateEarliestLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isSubmitDateEarliestLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isSubmitDateEarliestLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(submitDateEarliestLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isElanceLevelLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isElanceLevelLinkTextEnabled() {
+		try {
+			WebElement element = findElement(elanceLevelLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementElanceLevelLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickElanceLevelLinkText() {
+		try {
+			WebElement element = findElement(elanceLevelLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isElanceLevelLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isElanceLevelLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(elanceLevelLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isEarningsLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isEarningsLinkTextEnabled() {
+		try {
+			WebElement element = findElement(earningsLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementEarningsLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickEarningsLinkText() {
+		try {
+			WebElement element = findElement(earningsLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isEarningsLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isEarningsLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(earningsLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isMyRatingHighLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isMyRatingHighLinkTextEnabled() {
+		try {
+			WebElement element = findElement(myRatingHighLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementMyRatingHighLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickMyRatingHighLinkText() {
+		try {
+			WebElement element = findElement(myRatingHighLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isMyRatingHighLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isMyRatingHighLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(myRatingHighLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isMyRatingLowLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isMyRatingLowLinkTextEnabled() {
+		try {
+			WebElement element = findElement(myRatingLowLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementMyRatingLowLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickMyRatingLowLinkText() {
+		try {
+			WebElement element = findElement(myRatingLowLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isMyRatingLowLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isMyRatingLowLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(myRatingLowLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalAmountHighLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalAmountHighLinkTextEnabled() {
+		try {
+			WebElement element = findElement(proposalAmountHighLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementProposalAmountHighLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickProposalAmountHighLinkText() {
+		try {
+			WebElement element = findElement(proposalAmountHighLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalAmountHighLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalAmountHighLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalAmountHighLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalAmountLowLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalAmountLowLinkTextEnabled() {
+		try {
+			WebElement element = findElement(proposalAmountLowLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementProposalAmountLowLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickProposalAmountLowLinkText() {
+		try {
+			WebElement element = findElement(proposalAmountLowLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalAmountLowLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalAmountLowLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalAmountLowLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCompactLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isCompactLinkTextEnabled() {
+		try {
+			WebElement element = findElement(compactLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementCompactLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickCompactLinkText() {
+		try {
+			WebElement element = findElement(compactLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCompactLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isCompactLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(compactLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isExpandedLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isExpandedLinkTextEnabled() {
+		try {
+			WebElement element = findElement(expandedLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementExpandedLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickExpandedLinkText() {
+		try {
+			WebElement element = findElement(expandedLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isExpandedLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isExpandedLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(expandedLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFullLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFullLinkTextEnabled() {
+		try {
+			WebElement element = findElement(fullLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementFullLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickFullLinkText() {
+		try {
+			WebElement element = findElement(fullLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFullLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFullLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(fullLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates is2esetButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isResetButtonEnabled() {
+		try {
+			WebElement element = findElement(ResetButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates is2esetButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isResetButtonDisplayed() {
+		try {
+			WebElement element = findElement(ResetButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedOneRadioButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedOneRadioButtonEnabled() {
+		try {
+			WebElement element = findElement(ratedOneRadioButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedOneRadioButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedOneRadioButtonDisplayed() {
+		try {
+			WebElement element = findElement(ratedOneRadioButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickRatedOneRadioButton(). <br>
+	 * Method to click theratedOneRadioButton <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickRatedOneRadioButton() {
+		try {
+			WebElement element = findElement(ratedOneRadioButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedTwoRadioButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedTwoRadioButtonEnabled() {
+		try {
+			WebElement element = findElement(ratedTwoRadioButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedTwoRadioButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedTwoRadioButtonDisplayed() {
+		try {
+			WebElement element = findElement(ratedTwoRadioButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickRatedTwoRadioButton(). <br>
+	 * Method to click theratedTwoRadioButton <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickRatedTwoRadioButton() {
+		try {
+			WebElement element = findElement(ratedTwoRadioButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedThreeRadioButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedThreeRadioButtonEnabled() {
+		try {
+			WebElement element = findElement(ratedThreeRadioButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedThreeRadioButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedThreeRadioButtonDisplayed() {
+		try {
+			WebElement element = findElement(ratedThreeRadioButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickRatedThreeRadioButton(). <br>
+	 * Method to click theratedThreeRadioButton <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickRatedThreeRadioButton() {
+		try {
+			WebElement element = findElement(ratedThreeRadioButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedFourRadioButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedFourRadioButtonEnabled() {
+		try {
+			WebElement element = findElement(ratedFourRadioButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedFourRadioButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedFourRadioButtonDisplayed() {
+		try {
+			WebElement element = findElement(ratedFourRadioButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickRatedFourRadioButton(). <br>
+	 * Method to click theratedFourRadioButton <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickRatedFourRadioButton() {
+		try {
+			WebElement element = findElement(ratedFourRadioButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedFiveRadioButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedFiveRadioButtonEnabled() {
+		try {
+			WebElement element = findElement(ratedFiveRadioButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isRatedFiveRadioButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isRatedFiveRadioButtonDisplayed() {
+		try {
+			WebElement element = findElement(ratedFiveRadioButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickRatedFiveRadioButton(). <br>
+	 * Method to click theratedFiveRadioButton <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickRatedFiveRadioButton() {
+		try {
+			WebElement element = findElement(ratedFiveRadioButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLevelTextBoxEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLevelTextBoxEnabled() {
+		try {
+			WebElement element = findElement(levelTextBox);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLevelTextBoxDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLevelTextBoxDisplayed() {
+		try {
+			WebElement element = findElement(levelTextBox);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function demonstrates enterLevelTextBox(). <br>
+	 * Function indicates to enter freelancer user name <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @version 1.0
+	 */
+	public void enterLevelTextBox(String value) {
+		try {
+			WebElement element = findElement(levelTextBox);
+			element.sendKeys(value);
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isGoButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isGoButtonEnabled() {
+		try {
+			WebElement element = findElement(goButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isGoButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isGoButtonDisplayed() {
+		try {
+			WebElement element = findElement(goButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickGoButton(). <br>
+	 * Method to click clickGoButton <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickGoButton() {
+		try {
+			WebElement element = findElement(goButton);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFilterFeedbackDropDownEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFilterFeedbackDropDownEnabled() {
+		try {
+			WebElement element = findElement(filterFeedbackDropDown);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method selects an Item from a dropdown element
+	 * selectFilterFeedbackDropDown(String value). <br>
+	 * 
+	 * @param String
+	 *            value
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void selectFilterFeedbackDropDown(String value) {
+		try {
+			WebElement element = findElement(filterFeedbackDropDown);
+			new Select(element).selectByVisibleText(value);
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFilterFeedbackDropDownDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFilterFeedbackDropDownDisplayed() {
+		try {
+			WebElement element = findElement(filterFeedbackDropDown);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFiveStarLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFiveStarLinkTextEnabled() {
+		try {
+			WebElement element = findElement(fiveStarLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementFiveStarLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickFiveStarLinkText() {
+		try {
+			WebElement element = findElement(fiveStarLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFiveStarLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFiveStarLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(fiveStarLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFourStarLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFourStarLinkTextEnabled() {
+		try {
+			WebElement element = findElement(fourStarLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementFourStarLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickFourStarLinkText() {
+		try {
+			WebElement element = findElement(fourStarLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isFourStarLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isFourStarLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(fourStarLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isThreeStarlinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isThreeStarlinkTextEnabled() {
+		try {
+			WebElement element = findElement(threeStarlinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementThreeStarlinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickThreeStarlinkText() {
+		try {
+			WebElement element = findElement(threeStarlinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isThreeStarlinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isThreeStarlinkTextDisplayed() {
+		try {
+			WebElement element = findElement(threeStarlinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isBelowDropDownEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isBelowDropDownEnabled() {
+		try {
+			WebElement element = findElement(belowDropDown);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method selects an Item from a dropdown element
+	 * selectBelowDropDown(String value). <br>
+	 * 
+	 * @param String
+	 *            value
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void selectBelowDropDown(String value) {
+		try {
+			WebElement element = findElement(belowDropDown);
+			new Select(element).selectByVisibleText(value);
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isBelowDropDownDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isBelowDropDownDisplayed() {
+		try {
+			WebElement element = findElement(belowDropDown);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isBelowLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isBelowLinkTextEnabled() {
+		try {
+			WebElement element = findElement(belowLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementBelowLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickBelowLinkText() {
+		try {
+			WebElement element = findElement(belowLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isBelowLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isBelowLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(belowLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isAboveLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isAboveLinkTextEnabled() {
+		try {
+			WebElement element = findElement(aboveLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element elementAboveLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickAboveLinkText() {
+		try {
+			WebElement element = findElement(aboveLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isAboveLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isAboveLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(aboveLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isAmountTextBoxEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isAmountTextBoxEnabled() {
+		try {
+			WebElement element = findElement(amountTextBox);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isAmountTextBoxDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isAmountTextBoxDisplayed() {
+		try {
+			WebElement element = findElement(amountTextBox);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function demonstrates enterAmountTextBox(). <br>
+	 * Function indicates to enter freelancer user name <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @version 1.0
+	 */
+	public void enterAmountTextBox(String value) {
+		try {
+			WebElement element = findElement(amountTextBox);
+			element.sendKeys(value);
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isGoAmountButtonEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isGoAmountButtonEnabled() {
+		try {
+			WebElement element = findElement(goAmountButton);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isGoAmountButtonDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isGoAmountButtonDisplayed() {
+		try {
+			WebElement element = findElement(goAmountButton);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLocationDropDownEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLocationDropDownEnabled() {
+		try {
+			WebElement element = findElement(locationDropDown);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method selects an Item from a dropdown element
+	 * selectLocationDropDown(String value). <br>
+	 * 
+	 * @param String
+	 *            value
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void selectLocationDropDown(String value) {
+		try {
+			WebElement element = findElement(locationDropDown);
+			new Select(element).selectByVisibleText(value);
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isLocationDropDownDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isLocationDropDownDisplayed() {
+		try {
+			WebElement element = findElement(locationDropDown);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalNameLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalNameLinkTextEnabled() {
+		try {
+			WebElement element = findElement(proposalNameLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementProposalNameLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickProposalNameLinkText() {
+		try {
+			WebElement element = findElement(proposalNameLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalNameLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalNameLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalNameLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalCountryTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalCountryTextEnabled() {
+		try {
+			WebElement element = findElement(proposalCountryText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalCountryTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalCountryTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalCountryText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalCategoryTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalCategoryTextEnabled() {
+		try {
+			WebElement element = findElement(proposalCategoryText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalCategoryTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalCategoryTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalCategoryText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalJobsLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalJobsLinkTextEnabled() {
+		try {
+			WebElement element = findElement(proposalJobsLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementProposalJobsLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickProposalJobsLinkText() {
+		try {
+			WebElement element = findElement(proposalJobsLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalJobsLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalJobsLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalJobsLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalEarningLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalEarningLinkTextEnabled() {
+		try {
+			WebElement element = findElement(proposalEarningLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementProposalEarningLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickProposalEarningLinkText() {
+		try {
+			WebElement element = findElement(proposalEarningLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalEarningLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalEarningLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalEarningLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalStarLintTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalStarLintTextEnabled() {
+		try {
+			WebElement element = findElement(proposalStarLintText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalStarLintTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalStarLintTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalStarLintText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalPriceTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalPriceTextEnabled() {
+		try {
+			WebElement element = findElement(proposalPriceText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isProposalPriceTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isProposalPriceTextDisplayed() {
+		try {
+			WebElement element = findElement(proposalPriceText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCollapseProposalLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isCollapseProposalLinkTextEnabled() {
+		try {
+			WebElement element = findElement(collapseProposalLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementCollapseProposalLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickCollapseProposalLinkText() {
+		try {
+			WebElement element = findElement(collapseProposalLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCollapseProposalLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isCollapseProposalLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(collapseProposalLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isExpandProposalLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isExpandProposalLinkTextEnabled() {
+		try {
+			WebElement element = findElement(expandProposalLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element
+	 * elementExpandProposalLinkText(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickExpandProposalLinkText() {
+		try {
+			WebElement element = findElement(expandProposalLinkText);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates isExpandProposalLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isExpandProposalLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(expandProposalLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isPrintLinkTextEnabled(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isPrintLinkTextEnabled() {
+		try {
+			WebElement element = findElement(printLinkText);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isPrintLinkTextDisplayed(). <br>
+	 * 
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public boolean isPrintLinkTextDisplayed() {
+		try {
+			WebElement element = findElement(printLinkText);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This Method Makes clickPrintLinkText(). <br>
+	 * Method to click theprintLinkText <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Jesus Ojeda
+	 * @version 1.0
+	 */
+	public void clickPrintLinkText() {
+		try {
+			WebElement element = findElement(printLinkText);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method to verify job posted data.
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @author Gyanendra
+	 * @version 1.0
+	 */
+
+	public boolean verifyPostedDetails(String[] values) {
+		try {
+			boolean res = true;
+			for (int i = 0; i < values.length; i++) {
+				if (!isTextPresent(values[i])) {
+					res = false;
+					break;
+				}
+			}
+			return res;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @Describe This method selects a proposal from the list of proposed.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @param freelancer
+	 *            - user name of freelancer
+	 * @returns none.
+	 * @exception None.
+	 * @author Ligia
+	 * @version 1.0
+	 */
+	public boolean selectProposal(String freelancer) {
+
+		boolean verified = false;
+
+		ArrayList<WebElement> proposalList = (ArrayList<WebElement>) driver
+				.findElements(By
+						.xpath("//div[starts-with(@id, 'proposal-card')]"));
+
+		for (int i = 0; i < proposalList.size(); i++) {
+			WebElement proposal = proposalList.get(i);
+
+			WebElement freelancerLink = proposal.findElement(By
+					.xpath("//a[@title='See full profile information']"));
+
+			String freelancerProfileLink = freelancerLink.getAttribute("href");
+
+			String urlFreelancer = "https://nav.elance.com/s/" + freelancer;
+
+			if (freelancerProfileLink.contains(urlFreelancer)) {
+
+				WebElement selectButton = proposal.findElement(By
+						.xpath("//a[starts-with(@id, 'select')]"));
+
+				selectButton.click();
+
+				Reporter.log("Click on select button", true);
+
+				verified = true;
+
+				break;
+			}
+
+			Reporter.log(freelancerLink.getText() + " " + freelancer, true);
+
+		}
+
+		if (!verified)
+			Reporter.log("Freelancer proposal not found", true);
+
+		return verified;
+	}
+
+	public boolean clickUnhideProposal(String freelancer) {
+
+		boolean verified = false;
+
+		ArrayList<WebElement> proposalList = (ArrayList<WebElement>) driver
+				.findElements(By
+						.xpath("//div[starts-with(@id, 'proposal-card')]"));
+
+		for (int i = 0; i < proposalList.size(); i++) {
+			WebElement proposal = proposalList.get(i);
+
+			WebElement freelancerLink = proposal.findElement(By
+					.xpath("//a[@title='See full profile information']"));
+
+			String freelancerProfileLink = freelancerLink.getAttribute("href");
+
+			String urlFreelancer = "https://nav.elance.com/s/" + freelancer;
+
+			if (freelancerProfileLink.contains(urlFreelancer)) {
+
+				WebElement selectButton = proposal.findElement(By
+						.xpath("//a[starts-with(@id, 'hide')]"));
+
+				selectButton.click();
+
+				Reporter.log("Click on Unhide button", true);
+
+				verified = true;
+
+				break;
+			}
+
+			Reporter.log(freelancerLink.getText() + " " + freelancer, true);
+
+		}
+
+		if (!verified)
+			Reporter.log("Freelancer proposal not found", true);
+
+		return verified;
+	}
+
+	/**
+	 * This method open Job Proposal By URL.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public void openJobProposalByUrl(String ID) {
+		try {
+			String url = new String(resources.getString("pageURL"));
+			url = "nav." + url + ID + "/proposals";
+			driver.navigate().to(url);
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This method choose random Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public boolean randomFilter() {
+		int random = (int) (Math.random() * 8);
+		int ran = (int) (Math.random() * 5);
+		clickFilterDropDown();
+		switch (random) {
+		case 0:
+			clickAllProposalLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: All Proposal'",
+					true);
+			return isFilterCorrect(getProposals(), "All Proposals", ran);
+		case 1:
+			clickMyRatingLinkText();
+			switch (ran) {
+			case 1:
+				Reporter.log(
+						"Step 8: Apply any of the filter from 'Filter By: My Rating - 1'",
+						true);
+				clickRatedOneRadioButton();
+				return isFilterCorrect(getProposals(), "My Rating", ran);
+			case 2:
+				Reporter.log(
+						"Step 8: Apply any of the filter from 'Filter By: My Rating - 2'",
+						true);
+				clickRatedTwoRadioButton();
+				return isFilterCorrect(getProposals(), "My Rating", ran);
+			case 3:
+				Reporter.log(
+						"Step 8: Apply any of the filter from 'Filter By: My Rating - 3'",
+						true);
+				clickRatedThreeRadioButton();
+				return isFilterCorrect(getProposals(), "My Rating", ran);
+			case 4:
+				Reporter.log(
+						"Step 8: Apply any of the filter from 'Filter By: My Rating - 4'",
+						true);
+				clickRatedFourRadioButton();
+				return isFilterCorrect(getProposals(), "My Rating", ran);
+			case 5:
+				Reporter.log(
+						"Step 8: Apply any of the filter from 'Filter By: My Rating - 5'",
+						true);
+				clickRatedFiveRadioButton();
+				return isFilterCorrect(getProposals(), "My Rating", ran);
+			default:
+				return isFilterCorrect(getProposals(), "My Rating", ran);
+			}
+		case 2:
+			clickInvitedLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: Invited'",
+					true);
+			return isFilterCorrect(getProposals(), "Invited", ran);
+		case 3:
+			clickNewProposalsLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: New Proposals'",
+					true);
+			return isFilterCorrect(getProposals(), "New Proposal", ran);
+		case 4:
+			clickLevelLinkText();
+			enterLevelTextBox(String.valueOf(ran + 1));
+			clickGoButton();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: Level: '"
+							+ ran + 1, true);
+			return isFilterCorrect(getProposals(), "Level", ran);
+		case 5:
+			clickFeedbackLinkText();
+			clickFilterDropDown();
+			clickThreeStarlinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: Feedback: '"
+							+ ran, true);
+			return isFilterCorrect(getProposals(), "Feedback", 3);
+		case 6:
+			clickProposalAmountLinkText();
+			enterAmountTextBox(String.valueOf(ran + 6));
+			clickGoButton();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: Proposal Amount: '"
+							+ ran, true);
+			return isFilterCorrect(getProposals(), "Proposal Amount", ran);
+		case 7:
+			clickLocationLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Filter By: Location'",
+					true);
+			return isFilterCorrect(getProposals(), "Location", ran);
+		}
+		return true;
+	}
+
+	/**
+	 * This method choose random Sort.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public boolean randomSort() {
+		int random = (int) (Math.random() * 8);
+		clickSortDropDown();
+		switch (random) {
+		case 0:
+			clickSubmitDateLatestLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: Submit Date (Lasted)'",
+					true);
+			return isSortCorrect(getProposals(), "Submit Date (Lasted)");
+		case 1:
+			clickSubmitDateEarliestLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: Submit Date (Earliest)'",
+					true);
+			return isSortCorrect(getProposals(), "Submit Date (Earliest)");
+		case 2:
+			clickElanceLevelLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: Elance Level'",
+					true);
+			return isSortCorrect(getProposals(), "Elance Level");
+		case 3:
+			clickEarningsLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: Earnings'",
+					true);
+			return isSortCorrect(getProposals(), "Earnings");
+		case 4:
+			clickMyRatingHighLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: My Rating (High)'",
+					true);
+			return isSortCorrect(getProposals(), "My Rating (High)");
+		case 5:
+			clickMyRatingLowLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: My Rating (Low)'",
+					true);
+			return isSortCorrect(getProposals(), "My Rating (Low)");
+		case 6:
+			clickProposalAmountHighLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: Proposal Amount (High)'",
+					true);
+			return isSortCorrect(getProposals(), "Proposal Amount (High)");
+		case 7:
+			clickProposalAmountLowLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'Sort By: Proposal Amount (Low)'",
+					true);
+			return isSortCorrect(getProposals(), "Proposal Amount (Low)");
+		}
+		return true;
+	}
+
+	/**
+	 * This method choose a random Viem.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public boolean randomView() {
+		int random = (int) (Math.random() * 3);
+		clickViewDropDown();
+		switch (random) {
+		case 0:
+			clickCompactLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'View By: Compact'",
+					true);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			return isViewCorrect("Compact");
+		case 1:
+			clickExpandedLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'View By: Expand'",
+					true);
+			return isViewCorrect("Expand");
+		case 2:
+			clickFullLinkText();
+			Reporter.log(
+					"Step 8: Apply any of the filter from 'View By: Full'",
+					true);
+			return isViewCorrect("Full");
+		}
+		return true;
+	}
+
+	/**
+	 * This method validate all View.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean isViewCorrect(String criteria) {
+		ArrayList<WebElement> viewList = (ArrayList<WebElement>) driver
+				.findElements(By
+						.xpath("//a[@class='proposal-detail-expand detail-down-arrow displayNone']"));
+		System.out.println(viewList.size());
+		if ((criteria.equals("Full") || criteria.equals("Expand"))
+				&& viewList.size() >= 0)
+			return true;
+		else {
+			if (criteria.equals("Compact") && viewList.size() == 0)
+				return true;
+			else
+				return false;
+		}
+	}
+
+	/**
+	 * This method gets the Proposal.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public String[][] getProposals() {
+		ArrayList<WebElement> proposalList = (ArrayList<WebElement>) driver
+				.findElements(By
+						.xpath("//div[(starts-with(@id, 'proposal-card')) and ((@class='proposal-card') or (@class='proposal-card last'))]"));
+		String[][] data = new String[proposalList.size()][10];
+		for (int i = 0; i < proposalList.size(); i++) {
+			WebElement proposal = proposalList.get(i);
+			data[i][0] = proposal.getAttribute("rel");
+			WebElement details = proposal.findElement(By
+					.xpath("//input[@class='proposal-data' and @rel="
+							+ data[i][0] + "]"));
+			data = filterdata(i, details.getAttribute("value"), data);
+		}
+		return data;
+	}
+
+	/**
+	 * This method filter of value data.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public String[][] filterdata(int pos, String value, String data[][]) {
+		String[] part = value.split(",");
+		for (int i = 1; i <= part.length; i++) {
+			String[] fin = part[i - 1].split(":");
+			data[pos][i] = fin[1];
+		}
+		data[pos][7] = data[pos][7].substring(1, data[pos][7].length() - 1);
+		data[pos][9] = data[pos][9].substring(0, data[pos][9].length() - 1);
+		return data;
+	}
+
+	/**
+	 * This method validate Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public boolean isFilterCorrect(String[][] data, String criteria, int random) {
+		switch (criteria) {
+		case "All Proposals":
+			return true;
+		case "My Rating":
+			return myRatingFilter(data, random);
+		case "Invited":
+			return invitedFilter(data);
+		case "New Proposal":
+			return newProposalFilter(data);
+		case "Level":
+			return levelFilter(data, random);
+		case "Feedback":
+			return feedbackFilter(data, random);
+		case "Proposal Amount":
+			return amountFilter(data, random);
+		case "Location":
+			return locationFilter(data);
+		}
+		return true;
+	}
+
+	/**
+	 * This method validate Sort.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	public boolean isSortCorrect(String[][] data, String criteria) {
+		switch (criteria) {
+		case "Submit Date (Lasted)":
+			correctSort(data, true, 8);
+		case "Submit Date (Earliest)":
+			correctSort(data, false, 8);
+		case "Elance Level":
+			return correctSort(data, true, 4);
+		case "Earnings":
+			return correctSort(data, true, 9);
+		case "My Rating (High)":
+			return correctSort(data, true, 1);
+		case "My Rating (Low)":
+			return correctSort(data, false, 1);
+		case "Proposal Amount (High)":
+			return correctSort(data, true, 6);
+		case "Proposal Amount (Low)":
+			return correctSort(data, false, 6);
+		}
+		return true;
+	}
+
+	/**
+	 * This method validate All Sort.
+	 * 
+	 * @param data
+	 *            for verify, boolean is true if sort is High, index of data
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean correctSort(String[][] data, boolean b, int index) {
+		boolean sw = true;
+		for (int i = 0; i < data.length - 1; i++) {
+			Double value1 = Double.valueOf(data[i][index]);
+			Double value2 = Double.valueOf(data[i + 1][index]);
+			if (b) {
+				if (value1 >= value2)
+					sw = true;
+				else
+					return false;
+			} else {
+				if (value1 <= value2)
+					sw = true;
+				else
+					return false;
+			}
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate Location Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean locationFilter(String[][] data) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			if (!data[i][7].isEmpty())
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate Amount Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean amountFilter(String[][] data, int value) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			Double amount = Double.valueOf(data[i][6]);
+			if (amount <= value)
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate Feedback Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean feedbackFilter(String[][] data, int value) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			int amount = Integer.parseInt(data[i][5]);
+			if (amount <= value)
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate Level Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+
+	private boolean levelFilter(String[][] data, int value) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			int amount = Integer.parseInt(data[i][4]);
+			if (amount <= value)
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate New Proposal Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean newProposalFilter(String[][] data) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			if (data[i][3].equals("true"))
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate Rating Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean myRatingFilter(String[][] data, int value) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			int amount = Integer.parseInt(data[i][1]);
+			if (amount <= value)
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate Invited Filter.
+	 * 
+	 * @param data
+	 *            for verify
+	 * @return if true then the result is correct but if false the result is not
+	 *         correct
+	 * @author Jesus Ojeda
+	 */
+	private boolean invitedFilter(String[][] data) {
+		boolean sw = true;
+		for (int i = 0; i < data.length; i++) {
+			if (data[i][2].equals("true"))
+				sw = true;
+			else
+				return false;
+		}
+		return sw;
+	}
+
+	/**
+	 * This method validate all filters.
+	 * 
+	 * @param show
+	 *            Warnings
+	 * @return
+	 * @author Jesus Ojeda
+	 */
+	public void validateFilters(boolean showWarnings) {
+		if (showWarnings) {
+			if (!isFilterDropDownDisplayed())
+				Reporter.log("Warning: Filter By missing on Job Proposal!",
+						true);
+
+			clickFilterDropDown();
+
+			if (!isMyRatingLinkTextDisplayed())
+				Reporter.log("Warning: My Filter missing on Job Proposal!",
+						true);
+
+			if (!isInvitedLinkTextDisplayed())
+				Reporter.log("Warning: Invited missing on Job Proposal!", true);
+
+			if (!isNewProposalsLinkTextDisplayed())
+				Reporter.log("Warning: New Proposals missing on Job Proposal!",
+						true);
+
+			if (!isLevelLinkTextDisplayed())
+				Reporter.log("Warning: Level missing on Job Proposal!", true);
+
+			if (!isFeedbackLinkTextDisplayed())
+				Reporter.log("Warning: Feedback missing on Job Proposal!", true);
+
+			if (!isProposalAmountLinkTextDisplayed())
+				Reporter.log(
+						"Warning: Proposal Amount missing on Job Proposal!",
+						true);
+
+			if (!isLocationDropDownDisplayed())
+				Reporter.log("Warning: Location missing on Job Proposal!", true);
+
+			clickSortDropDown();
+
+			if (!isSubmitDateLatestLinkTextDisplayed())
+				Reporter.log(
+						"Warning: Submit Date(Latest) missing on Job Proposal!",
+						true);
+
+			if (!isSubmitDateEarliestLinkTextDisplayed())
+				Reporter.log(
+						"Warning: Submit Date(Earliest) missing on Job Proposal!",
+						true);
+
+			if (!isElanceLevelLinkTextDisplayed())
+				Reporter.log("Warning: Elance Level missing on Job Proposal!",
+						true);
+
+			if (!isEarningsLinkTextDisplayed())
+				Reporter.log("Warning: Earnings missing on Job Proposal!", true);
+
+			if (!isMyRatingHighLinkTextDisplayed())
+				Reporter.log(
+						"Warning: My Rating(High) missing on Job Proposal!",
+						true);
+
+			if (!isMyRatingLowLinkTextDisplayed())
+				Reporter.log(
+						"Warning: My Rating(Low) missing on Job Proposal!",
+						true);
+
+			if (!isProposalAmountHighLinkTextDisplayed())
+				Reporter.log(
+						"Warning: Proposal Amount(High) missing on Job Proposal!",
+						true);
+
+			if (!isProposalAmountLowLinkTextDisplayed())
+				Reporter.log(
+						"Warning: Proposal Amount(Low) missing on Job Proposal!",
+						true);
+
+			clickViewDropDown();
+
+			if (!isCompactLinkTextDisplayed())
+				Reporter.log("Warning: Compact missing on Job Proposal!", true);
+
+			if (!isExpandedLinkTextDisplayed())
+				Reporter.log("Warning: Expanded missing on Job Proposal!", true);
+
+			if (!isFullLinkTextDisplayed())
+				Reporter.log("Warning: Location missing on Job Proposal!", true);
+
+		} else {
+			Assert.assertTrue(isFilterDropDownDisplayed());
+			clickFilterDropDown();
+			Assert.assertTrue(isMyRatingLinkTextDisplayed());
+			Assert.assertTrue(isInvitedLinkTextDisplayed());
+			Assert.assertTrue(isNewProposalsLinkTextDisplayed());
+			Assert.assertTrue(isLevelLinkTextDisplayed());
+			Assert.assertTrue(isFeedbackLinkTextDisplayed());
+			Assert.assertTrue(isProposalAmountLinkTextDisplayed());
+			Assert.assertTrue(isLocationLinkTextDisplayed());
+			clickSortDropDown();
+			Assert.assertTrue(isSubmitDateLatestLinkTextDisplayed());
+			Assert.assertTrue(isSubmitDateEarliestLinkTextDisplayed());
+			Assert.assertTrue(isElanceLevelLinkTextDisplayed());
+			Assert.assertTrue(isEarningsLinkTextDisplayed());
+			Assert.assertTrue(isMyRatingHighLinkTextDisplayed());
+			Assert.assertTrue(isMyRatingLowLinkTextDisplayed());
+			Assert.assertTrue(isProposalAmountHighLinkTextDisplayed());
+			Assert.assertTrue(isProposalAmountLowLinkTextDisplayed());
+			clickViewDropDown();
+			Assert.assertTrue(isCompactLinkTextDisplayed());
+			Assert.assertTrue(isExpandedLinkTextDisplayed());
+			Assert.assertTrue(isFullLinkTextDisplayed());
+		}
+	}
+
+	/**
+	 * @Describe This method verifies that system has sent invitations to all
+	 *           the people who appear in the list of names (input data).
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @param names
+	 *            - list of names to which they should have been sent an
+	 *            invitation
+	 * @return true-if all the people on the list are on the invitation list
+	 * @author Ligia
+	 */
+	public boolean VerifyProposalInvites(String[] names) {
+		boolean result = true;
+		for (int i = 0; i < names.length; i++) {
+
+			if (!isFreelancerInInvitedList(names[i].trim())) {
+				Reporter.log("Warning invite not found " + names[i], true);
+				result = false;
+			}
+
+		}
+
+		return result;
+
+	}
+
+	/**
+	 * @Describe This method verify if a freelancer is in list of invites of
+	 *           current job
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @param name
+	 *            of freelancer
+	 * @return true - if freelancer is in list of invites
+	 * @author Ligia
+	 */
+	public boolean isFreelancerInInvitedList(String name) {
+
+		ArrayList<WebElement> proposalList = (ArrayList<WebElement>) driver
+				.findElements(By.xpath("//div[@class='proposal-invited-name']"));
+
+		for (int i = 0; i < proposalList.size(); i++) {
+			WebElement proposal = proposalList.get(i);
+			String nameFreelancer = proposal.getText().trim();
+			if (nameFreelancer.equals(name)) {
+				Reporter.log("invite found for " + name, true);
+				return true;
+			}
+		}
+		Reporter.log("Warning invite not found for " + name, true);
+		return false;
+	}
+
+	/**
+	 * @describe This method obtains the information from the current job like
+	 *           location, jobDetail, description and category
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @return String[] - information of the job
+	 * @author Ligia
+	 */
+	public String[] getJobInformation() {
+		WebElement locationInfoElement = findElement(locationInfoText);
+		WebElement jobDetailInfoElement = findElement(jobDetailInfoText);
+		WebElement typeWorkInfoElement = findElement(typeOfWorkInfoText);
+		WebElement descriptionInfoElement = findElement(descriptionInfoText);
+		WebElement categoryAndSubCategoryElement = findElement(categoryAndSubCategory);
+
+		String[] jobInformation = new String[5];
+
+		jobInformation[0] = locationInfoElement.getText();
+		jobInformation[1] = jobDetailInfoElement.getText();
+		jobInformation[2] = typeWorkInfoElement.getText();
+		jobInformation[3] = descriptionInfoElement.getText();
+		jobInformation[4] = categoryAndSubCategoryElement.getText();
+
+		Reporter.log(locationInfoElement.getText(), true);
+		Reporter.log(jobDetailInfoElement.getText(), true);
+		Reporter.log(typeWorkInfoElement.getText(), true);
+		Reporter.log(descriptionInfoElement.getText(), true);
+		Reporter.log(categoryAndSubCategoryElement.getText(), true);
+
+		return jobInformation;
+	}
+
+	/**
+	 * @Describe This method Check if the current job information matches the
+	 *           input data
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @param jobInformation
+	 *            - input data
+	 * @return true if matches
+	 * @author Ligia
+	 */
+	public boolean verifyInformation(String[] jobInformation) {
+		waitForElementPresent(descriptionInfoText, 30);
+		WebElement descriptionInfoElement = findElement(descriptionInfoText);
+
+		clickMoreDetailLink();
+		WebElement jobDetailInfoElement = findElement(jobDetailInfoText);
+		WebElement typeWorkInfoElement = findElement(typeOfWorkInfoText);
+
+		WebElement categoryAndSubCategoryElement = findElement(categoryAndSubCategory);
+
+		String infoDescription[] = descriptionInfoElement.getText().split(
+				"Job ID:");
+
+		Reporter.log(jobDetailInfoElement.getText(), true);
+		Reporter.log(typeWorkInfoElement.getText(), true);
+		Reporter.log(infoDescription[0].trim(), true);
+		Reporter.log(categoryAndSubCategoryElement.getText(), true);
+		Reporter.log("--------------------------------------------", true);
+
+		boolean matchJobDetail = jobDetailInfoElement.getText().trim()
+				.equals(jobInformation[1].trim());
+		boolean matchTypeWork = typeWorkInfoElement.getText().trim()
+				.equals(jobInformation[2].trim());
+		boolean matchDescription = infoDescription[0].trim().equals(
+				jobInformation[3].trim());
+		boolean matchCategoryAndSubCategory = categoryAndSubCategoryElement
+				.getText().trim().equals(jobInformation[4].trim());
+
+		Reporter.log(jobInformation[0].trim(), true);
+		Reporter.log(jobInformation[1].trim(), true);
+		Reporter.log(jobInformation[2].trim(), true);
+		Reporter.log(jobInformation[3].trim(), true);
+		Reporter.log(jobInformation[4].trim(), true);
+		return matchJobDetail && matchTypeWork && matchDescription
+				&& matchCategoryAndSubCategory;
+	}
+
+	/**
+	 * @describe This method makes clickInvitedTab <br>
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Ligia
+	 * @version 1.0
+	 */
+	public void clickInvitedTab() {
+		try {
+			WebElement element = findElement(invitedTab);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * @Describe This method verifies that the current job has no invitations to
+	 *           freelancers
+	 * @return true-if invitation list is empty
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Ligia
+	 * @version 1.0
+	 */
+	public boolean VerifyNoInvites() {
+
+		waitForTextPresent("Invite More", 30);
+		ArrayList<WebElement> proposalList = (ArrayList<WebElement>) driver
+				.findElements(By.xpath("//a[@class='bidCard-title']"));
+
+		return proposalList.size() == 0;
+
+	}
+
+	/**
+	 * This method makes click an linktext element clickJobActionsDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void clickJobActionsDropDown() {
+		try {
+			Thread.sleep(3000);
+			WebElement element = findElement(jobActionsDropDown);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This function Demonstrates clickExtendBiddingDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void selectJobOptionRelistJob() {
+		  try {  
+		   
+		   WebElement menu=findElement(jobActionsDropDown);
+		   Actions builder = new Actions(driver);
+		   builder.moveToElement(menu).build().perform();
+		   
+		   Thread.sleep(5000);
+
+		   WebElement element = findElement(relistJob);
+		   element.click();
+		   element.click();
+		   Thread.sleep(3000);
+		  } catch (Exception e) {
+
+		  }
+	}
+	
+	/**
+	 * This function Demonstrates selectJobOptionExtendBidding(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void selectJobOptionExtendBidding() {
+		  try {  
+		   
+		   WebElement menu=findElement(jobActionsDropDown);
+		   Actions builder = new Actions(driver);
+		   builder.moveToElement(menu).build().perform();
+		   
+		   Thread.sleep(5000);
+
+		   WebElement element = findElement(extendBidding);
+		   element.click();
+		   element.click();
+		   Thread.sleep(3000);
+		  } catch (Exception e) {
+
+		  }
+	}
+	
+	/**
+	 * This function Demonstrates selectJobOptionEndBidding(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void selectJobOptionEndBidding() {
+		  try {  
+		   
+		   WebElement menu=findElement(jobActionsDropDown);
+		   Actions builder = new Actions(driver);
+		   builder.moveToElement(menu).build().perform();
+		   
+		   Thread.sleep(5000);
+
+		   WebElement element = findElement(endBidding);
+		   element.click();
+		   element.click();
+		   Thread.sleep(3000);
+		  } catch (Exception e) {
+
+		  }
+	}
+	
+	/**
+	 * This function Demonstrates selectJobOptionCancelProject(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void selectJobOptionCancelProject() {
+		  try {  
+		   
+		   WebElement menu=findElement(jobActionsDropDown);
+		   Actions builder = new Actions(driver);
+		   builder.moveToElement(menu).build().perform();
+		   
+		   Thread.sleep(5000);
+
+		   WebElement element = findElement(cancelProject);
+		   element.click();
+		   element.click();
+		   Thread.sleep(3000);
+		  } catch (Exception e) {
+
+		  }
+	}
+	
+	/**
+	 * This method makes click an linktext element clickExtendBiddingDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void clickExtendBiddingDropDown() {
+		try {
+			WebElement element = findElement(extendBidding);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element clickEndBiddingDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void clickEndBiddingDropDown() {
+		try {
+			WebElement element = findElement(endBidding);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element clickCancelProjectDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void clickCancelProjectDropDown() {
+		try {
+			WebElement element = findElement(cancelProject);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * This method makes click an linktext element clickRelistJobDropDown(). <br>
+	 * 
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Wilma Cruz
+	 * @version 1.0
+	 */
+	public void clickRelistJobDropDown() {
+		try {
+			Thread.sleep(3000); 
+			WebElement element = findElement(relistJob);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * @Describe This method makes click on ViewOrSendMessage Icon of selected
+	 *           Freelancer.
+	 * @param username
+	 *            - user name of freelancer
+	 * @returns none.
+	 * @exception None.
+	 * @author Ligia
+	 * @version 1.0
+	 */
+	public boolean sendMessageToFreelancer(String userName) {
+		boolean verified = false;
+		ArrayList<WebElement> freelancerProfileLinkList = (ArrayList<WebElement>) driver
+				.findElements(By
+						.xpath("//a[@title='See full profile information']"));
+
+		ArrayList<WebElement> messageIconLinkList = (ArrayList<WebElement>) driver
+				.findElements(By
+						.xpath("//div[@class='proposal-card-icon proposal-icon-messages']"));
+
+		int i = 0;
+		int index = 0;
+		while (i < freelancerProfileLinkList.size()) {
+
+			String freelancerProfileLink = freelancerProfileLinkList.get(i)
+					.getAttribute("href");
+
+			String urlFreelancer = "https://nav.elance.com/s/" + userName;
+
+			Reporter.log("log " + freelancerProfileLink, true);
+
+			if (freelancerProfileLink.contains(urlFreelancer)) {
+
+				messageIconLinkList.get(index).click();
+				;
+
+				Reporter.log("Click on select button", true);
+
+				verified = true;
+
+				break;
+			}
+
+			Reporter.log(freelancerProfileLink + " " + userName, true);
+			i = i + 2;
+			index++;
+		}
+
+		if (!verified)
+			Reporter.log("Freelancer proposal not found", true);
+
+		return verified;
+	}
+
+	/**
+	 * This function demonstrates clickCloseDialog(). <br>
+	 * @Describe Function to click theCloseDialog <br>
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public void clickCloseDialog() {
+		try {
+			waitForElementPresent(closeDialog, 10);
+			WebElement element = findElement(closeDialog);
+			element.click();
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCloseDialogEnabled(). <br>
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isCloseDialogEnabled() {
+		try {
+			WebElement element = findElement(closeDialog);
+			return (element.isEnabled());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCloseDialogDisplayed(). <br>
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public boolean isCloseDialogDisplayed() {
+		try {
+			WebElement element = findElement(closeDialog);
+			return (element.isDisplayed());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * This function Demonstrates isCloseDialogDisplayed(). <br>
+	 * @Describe This method makes the webDriver handles the WorkRoom Widget iframe
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public void switchToWorkRoomWidgetPage() {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions
+				.frameToBeAvailableAndSwitchToIt("pmbwidget"));
+	}
+
+	/**
+	 * This function Demonstrates goBackToJobProposalPage(). <br>
+	 * @Describe This method makes the webdriver return to JobProposal page.
+	 * @exception Catches
+	 *                Exception if element not found
+	 * @see oTestBasePageDeclaration
+	 * @see oTestWebDriverFactory
+	 * @author Ligia Barrera
+	 * @version 1.0
+	 */
+	public void goBackToJobProposalPage() {
+		driver.switchTo().defaultContent();
+	}
+	
+	/**
+	 * @Describe Click on Add Team Members link
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception MissingResourceException
+	 */
+	public void clickAddTeamMembersLink() {
+		try {
+			WebElement element = findElement(addTeamMembersLink);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+	
+	/**
+	 * @Describe method to verify the confirmation of verified account message
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception MissingResourceException
+	 */
+	public boolean isConfirmationOfVerifiedAccountMessageDisplayed(){
+		String message = "Thanks for verifying your account. You can now start hiring.";
+		
+		boolean result = true;
+		
+		if(!isTextPresent(message)){
+			result = false;
+			Reporter.log("Warning! message is missing on Jobproposal Page", true);
+		}
+		return result;
+	}
+
+	
+	/**
+	 * @Describe Click on Verify Now Button
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception MissingResourceException
+	 */	
+	public void clickVerifyNowButton() {
+		try {
+			WebElement element = findElement(verifyNowButton);
+			element.click();
+		} catch (Exception e) {
+		}
+	}	
+	
+	/**
+	 * @Describe method to verify the no proposal message 
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception MissingResourceException
+	 */	
+	public boolean isNoProposalMessagesTextDisplayed(){
+		
+		boolean result = true;
+		
+		if(!isTextPresent(resources.getString(noProposalMessageText))){
+			result = false;
+			Reporter.log("Warning! noProposalMessageText is missing on Jobproposal Page", true);
+		}
+		
+		if(!isTextPresent(resources.getString(noProposalMessage2Text))){
+			result = false;
+			Reporter.log("Warning! noProposalMessage2Text is missing on Jobproposal Page", true);
+		}		
+		return result;
+	}
+	
+	/**
+	 * @Describe method to verify thereIsProposal message
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception MissingResourceException
+	 */		
+	public boolean isThereIsProposalMessagesTextDisplayed(){
+		
+		boolean result = true;
+		
+		if(!isTextPresent(resources.getString(thereIsProposalMessageText))){
+			result = false;
+			Reporter.log("Warning! thereIsProposalMessageText is missing on Jobproposal Page", true);
+		}
+	
+		return result;
+	}
+
+	/**
+	 * @Describe method to verify clickInviteMatchingCandidates message
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception ElementNotFoundException
+	 */			
+	public void clickInviteMatchingCandidatesButton() {
+		try {
+			WebElement element = findElement(inviteMatchingCandidatesButton);
+			element.click();
+		} catch (Exception e) {
+		}
+	}	
+	
+	/**
+	 * @Describe method to verify click on feature Job Post button
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception ElementNotFoundException
+	 */		
+	public void clickFeatureJobPostButton() {
+		try {
+			WebElement element = findElement(featureJobPostButton);
+			element.click();
+		} catch (Exception e) {
+		}
+	}
+	
+	/**
+	 * @Describe method to click on search invites freelancer button
+	 * @version 1.0
+	 * @author Ligia
+	 * @exception ElementNotFoundException
+	 */		
+	public void clickSearchAndInviteFreelancerButton() {
+		try {
+			WebElement element = findElement(searchAndInviteFreelancerButton);
+			element.click();
+		} catch (Exception e) {
+		}
+	}	
+	
+	/**
+	 * @Describe method to verify the Verify Account Pop Up Message
+	 * @exception MissingResourceException
+	 * @version 1.0
+	 * @author Ligia
+	 */		
+	public boolean isVerifyAccountPopupsMessagePresent(){
+		waitForTextPresent(resources.getString(popUpTitleText), 20);
+		boolean result = true;
+		
+		if(!isTextPresent(resources.getString(popUpTitleText))){
+			Reporter.log("Warning popUpTitleText missing on verifyAccountPopUp", true);
+			result = false;
+		}
+
+		if(!isTextPresent(resources.getString(popUpMessageText))){
+			Reporter.log("Warning popUpMessageText missing on verifyAccountPopUp", true);
+			result = false;
+		}
+		
+		return result;
+	}	
+	
+	/**
+	 * @Describe method to click on verify Account Pop Up Close button
+	 * @exception MissingResourceException
+	 * @version 1.0
+	 * @author Ligia
+	 */		
+	public void clickVerifyAccountPopUpCloseButton() {
+		try {
+			WebElement element = findElement(verifyAccountPopUpCloseButton);
+			element.click();
+		} catch (Exception e) {
+		}
+	}	
+	
+<<<<<<< HEAD
+	/**
+	 * @Describe method to get the Job Title
+	 * @exception MissingResourceException
+	 * @version 1.0
+	 * @author Ligia
+	 */		
+	public String getJobTitleText() {
+		try {
+			WebElement element = findElement(jobTitleText);
+			return element.getText();
+		} catch (Exception e) {
+			Reporter.log("Warning! JobTitleText is missing on JobProposal Page.", true);
+			return "";
+		}
+	}		
+	
+=======
+>>>>>>> 9fc64b884953ce51507564b8b56809bc44578f2a
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>chrriis.dj.nativeswing.NativeSwing</groupId>
+  <artifactId>DJNativeSwing-SWT</artifactId>
+  <version>1.0.0</version>
+  <versioning>
+    <versions>
+      <version>1.0.0</version>
+    </versions>
+    <lastUpdated>20140409225521</lastUpdated>
+  </versioning>
+</metadata>

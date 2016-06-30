@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Before Suite complete
+
+]]>
+    </line>
+    <line>
+      <![CDATA[BeforeClass complete...create oTestWebDriverFactory
+
+]]>
+    </line>
+    <line>
+      <![CDATA[Getting test run data from: setup.xls using label: LOGIN]]>
+    </line>
+    <line>
+      <![CDATA[setupDataProvider: Loaded data from spreadsheet complete]]>
+    </line>
+    <line>
+      <![CDATA[Before Method...
+]]>
+    </line>
+    <line>
+      <![CDATA[created webDriver class]]>
+    </line>
+    <line>
+      <![CDATA[Start the CheckProfileTest on Windows 8 64 bit using Chrome browser, version 1]]>
+    </line>
+    <line>
+      <![CDATA[Step 1: Launch web browser (FireFox,IE, Chrome)]]>
+    </line>
+    <line>
+      <![CDATA[Step 2:Open Web Page http://dev.digitaltolk.com/login]]>
+    </line>
+    <line>
+      <![CDATA[Step 3:Verified load web pagedigitaltolk.com/login]]>
+    </line>
+    <line>
+      <![CDATA[Step 4:Log in with user]]>
+    </line>
+    <line>
+      <![CDATA[Step 5:Open Web Page digitaltolk.com/login]]>
+    </line>
+    <line>
+      <![CDATA[Expect 1:Verified Home Page : URL Home Page]]>
+    </line>
+    <line>
+      <![CDATA[Step 6: Close Browser.]]>
+    </line>
+    <line>
+      <![CDATA[sauceLab results: Local Web Driver]]>
+    </line>
+    <line>
+      <![CDATA[Login Check: Passed]]>
+    </line>
+    <line>
+      <![CDATA[After Method, closed the browser page
+]]>
+    </line>
+    <line>
+      <![CDATA[After Class...
+]]>
+    </line>
+    <line>
+      <![CDATA[After Test:....
+]]>
+    </line>
+    <line>
+      <![CDATA[After Suite...]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="23584" started-at="2016-06-30T07:15:04Z" finished-at="2016-06-30T07:15:28Z">
+    <groups>
+      <group name="P0">
+        <method signature="LoginPageTest.loginPageTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="loginPageTest" class="com.digitaltolk.qa.page.test.LoginPageTest"/>
+      </group> <!-- P0 -->
+      <group name="LoginPageTest">
+        <method signature="LoginPageTest.loginPageTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="loginPageTest" class="com.digitaltolk.qa.page.test.LoginPageTest"/>
+      </group> <!-- LoginPageTest -->
+    </groups>
+    <test name="Default test" duration-ms="23584" started-at="2016-06-30T07:15:04Z" finished-at="2016-06-30T07:15:28Z">
+      <class name="com.digitaltolk.qa.page.test.LoginPageTest">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="beforeSuite" is-config="true" duration-ms="19" started-at="2016-06-30T03:15:04Z" finished-at="2016-06-30T03:15:04Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Before Suite complete
+
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="beforeClass" is-config="true" duration-ms="109" started-at="2016-06-30T03:15:04Z" finished-at="2016-06-30T03:15:04Z">
+          <reporter-output>
+            <line>
+              <![CDATA[BeforeClass complete...create oTestWebDriverFactory
+
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2016-06-30T03:15:05Z" finished-at="2016-06-30T03:15:05Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Before Method...
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="loginPageTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="loginPageTest" duration-ms="19414" started-at="2016-06-30T03:15:05Z" description="Login Page" data-provider="oTestBaseTestNGDeclarationDataProvider" finished-at="2016-06-30T03:15:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Yes]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Windows 8 64 bit]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[local]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[http://dev.digitaltolk.com/login]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Login Page]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[setup.xls]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[P0]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[LoginPageTest]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[created webDriver class]]>
+            </line>
+            <line>
+              <![CDATA[Start the CheckProfileTest on Windows 8 64 bit using Chrome browser, version 1]]>
+            </line>
+            <line>
+              <![CDATA[Step 1: Launch web browser (FireFox,IE, Chrome)]]>
+            </line>
+            <line>
+              <![CDATA[Step 2:Open Web Page http://dev.digitaltolk.com/login]]>
+            </line>
+            <line>
+              <![CDATA[Step 3:Verified load web pagedigitaltolk.com/login]]>
+            </line>
+            <line>
+              <![CDATA[Step 4:Log in with user]]>
+            </line>
+            <line>
+              <![CDATA[Step 5:Open Web Page digitaltolk.com/login]]>
+            </line>
+            <line>
+              <![CDATA[Expect 1:Verified Home Page : URL Home Page]]>
+            </line>
+            <line>
+              <![CDATA[Step 6: Close Browser.]]>
+            </line>
+            <line>
+              <![CDATA[sauceLab results: Local Web Driver]]>
+            </line>
+            <line>
+              <![CDATA[Login Check: Passed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- loginPageTest -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="afterMethod" is-config="true" duration-ms="3371" started-at="2016-06-30T03:15:24Z" finished-at="2016-06-30T03:15:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[After Method, closed the browser page
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="afterClass" is-config="true" duration-ms="1" started-at="2016-06-30T03:15:28Z" finished-at="2016-06-30T03:15:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[After Class...
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="afterTest" is-config="true" duration-ms="1" started-at="2016-06-30T03:15:28Z" finished-at="2016-06-30T03:15:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[After Test:....
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.digitaltolk.qa.page.test.LoginPageTest@3c09711b]" name="afterSuite" is-config="true" duration-ms="0" started-at="2016-06-30T03:15:28Z" finished-at="2016-06-30T03:15:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[After Suite...]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.digitaltolk.qa.page.test.LoginPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

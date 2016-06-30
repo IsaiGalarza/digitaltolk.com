@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.teamdev.jxbrowser</groupId>
+  <artifactId>jxbrowser</artifactId>
+  <version>3.4</version>
+  <versioning>
+    <versions>
+      <version>3.4</version>
+    </versions>
+    <lastUpdated>20140409225529</lastUpdated>
+  </versioning>
+</metadata>

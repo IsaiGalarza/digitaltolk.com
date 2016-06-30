@@ -1,0 +1,375 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>qa-digitaltolk</groupId>
+  <artifactId>com.digitaltolk.qa</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <properties>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<SourceDirectory>${project.basedir}/src</SourceDirectory>
+		<SourceDirectory>${project.basedir}/resources</SourceDirectory>
+		<SourceDirectory>${project.basedir}/data</SourceDirectory>
+		<testSuite>testSuite/selftest.xml</testSuite>
+  </properties>
+  
+  <repositories>
+	<repository>
+		<id>JARs</id>
+		<name>JARs</name>
+		<releases>
+			<enabled>true</enabled>
+			<checksumPolicy>ignore</checksumPolicy>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+		<url>file://${project.basedir}/JARs</url>
+	</repository>
+	<repository>
+		<id>xuggle repo</id>
+		<url>http://xuggle.googlecode.com/svn/trunk/repo/share/java/</url>
+	</repository>
+  </repositories>
+
+  <dependencies>
+	<!-- below are downloaded from Maven central Repo -->
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-server</artifactId>
+		<version>2.42.2</version>
+	</dependency>
+	<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>2.42.2</version>
+</dependency>
+	<dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>6.8.7</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.github.detro.ghostdriver</groupId>
+		<artifactId>phantomjsdriver</artifactId>
+		<version>1.1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.jcraft</groupId>
+		<artifactId>jsch</artifactId>
+		<version>0.1.51</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.apache.axis</groupId>
+		<artifactId>axis</artifactId>
+		<version>1.4</version>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.xml</groupId>
+		<artifactId>jaxrpc-api</artifactId>
+		<version>1.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.j2bugzilla</groupId>
+		<artifactId>j2bugzilla</artifactId>
+		<version>2.2</version>
+	</dependency>
+
+	<dependency>
+		<groupId>xuggle</groupId>
+		<artifactId>xuggle-xuggler</artifactId>
+		<version>5.2</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.newrelic.agent.java</groupId>
+		<artifactId>newrelic-api</artifactId>
+		<version>2.15.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.sikuli</groupId>
+		<artifactId>sikuli-webdriver</artifactId>
+		<version>1.0.1</version>
+	</dependency>
+
+<!-- 	comment out since this is not used
+	<dependency>
+		<groupId>com.applitools</groupId>
+		<artifactId>eyes-selenium-java</artifactId>
+		<version>RELEASE</version>
+	</dependency>
+
+	<dependency>
+                <groupId>com.applitools</groupId>
+		<artifactId>eyes-sdk-java</artifactId>
+                <version>RELEASE</version>
+        </dependency> 
+        -->
+
+	<dependency>
+		<groupId>commons-discovery</groupId>
+		<artifactId>commons-discovery</artifactId>
+		<version>0.5</version>
+	</dependency>
+
+	<dependency>
+		<groupId>xml-apis</groupId>
+		<artifactId>xml-apis</artifactId>
+		<version>1.4.01</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.eclipse.birt.runtime.3_7_1</groupId>
+		<artifactId>javax.wsdl</artifactId>
+		<version>1.5.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>commons-lang</groupId>
+		<artifactId>commons-lang</artifactId>
+		<version>2.6</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-asl</artifactId>
+		<version>1.9.5</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.5</version>
+	</dependency>
+	
+	
+	<dependency>
+    	<groupId>com.opera</groupId>
+    	<artifactId>operadriver</artifactId>
+    	<version>1.5</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>io.appium</groupId>
+		<artifactId>java-client</artifactId>
+		<version>1.6.1</version>
+	</dependency>
+	
+	<dependency>
+	<groupId>de.sven-jacobs</groupId>
+	<artifactId>loremipsum</artifactId>
+	<version>1.0</version>
+</dependency>
+	
+	<!-- local libraries -->
+
+	<dependency>
+		<groupId>org.codehaus.griffon</groupId>
+		<artifactId>swingxbuilder</artifactId>
+		<version>0.3</version>
+	</dependency>
+
+	<dependency>
+		<groupId>net.coobird</groupId>
+		<artifactId>thumbnailator</artifactId>
+		<version>0.4.7</version>
+	</dependency>
+
+	<dependency>
+		<groupId>net.sourceforge.jexcelapi</groupId>
+		<artifactId>jxl</artifactId>
+		<version>2.6.12</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>chrriis.dj.nativeswing.NativeSwing</groupId>
+		<artifactId>DJNativeSwing-SWT</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>chrriis.dj.nativeswing.NativeSwing</groupId>
+		<artifactId>DJNativeSwing</artifactId>
+		<version>1.0.2</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.teamdev.jxbrowser</groupId>
+		<artifactId>jxbrowser</artifactId>
+		<version>3.4</version>
+	</dependency>
+
+	<dependency>
+		<groupId>edu.umass.cs.benchlab.har</groupId>
+		<artifactId>harlib</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.github.hipchat.api</groupId>
+		<artifactId>jHipchat</artifactId>
+		<version>0.0.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.swift.common</groupId>
+		<artifactId>jira-soap</artifactId>
+		<version>5.0.0</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.bytedeco</groupId>
+		<artifactId>javacv</artifactId>
+		<version>0.9</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.bytedeco</groupId>
+		<artifactId>javacpp</artifactId>
+		<version>0.9</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.saucelabs</groupId>
+		<artifactId>saucerest</artifactId>
+		<version>1.0.4</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.saucelabs</groupId>
+		<artifactId>sauce-connect</artifactId>
+		<version>3.0.24</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.saucelabs.ci.sauceconnect.SauceConnectTwoManager</groupId>
+		<artifactId>ci-sauce</artifactId>
+		<version>1.28</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.common.oTest</groupId>
+		<artifactId>oTest</artifactId>
+		<version>2014-10-06_14-31-10</version>
+	</dependency>
+	<!-- Javafx will need to be included to build path manually. Java 1.8 should 
+		fix this issue -->
+
+	</dependencies>
+	
+  
+    <!-- Build Settings -->
+	<build>
+<sourceDirectory>src</sourceDirectory>
+
+
+	<plugins>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.1</version>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-eclipse-plugin</artifactId>
+			<version>2.9</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<addClasspath>true</addClasspath>
+						<mainClass>com.common.elance</mainClass>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
+
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>2.17</version>
+		<configuration>
+			<suiteXmlFiles>
+				<suiteXmlFile>${testSuite}</suiteXmlFile>
+			</suiteXmlFiles>
+			<properties>
+				<property>
+					<name>usedefaultlisteners</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>reporter</name>
+					<value>listenReport.Reporter</value>
+				</property>
+			</properties>
+		
+		</configuration>
+	</plugin>
+
+	<plugin>
+<!-- 		plugin that attaches javadoc -->
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>2.9.1</version>
+		<executions>
+			<execution>
+				<id>attach-javadocs</id>
+				<goals>
+					<goal>jar</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
+<!-- 	plugin that check next version 	 -->
+	<plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>versions-maven-plugin</artifactId>
+		<version>2.1</version>
+	</plugin>	
+<!--  plugin that change the report directory-->
+	 <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>2.17</version>
+        <configuration>
+          <outputDirectory>${project.basedir}/test-output</outputDirectory>
+        </configuration>
+      </plugin>
+<!--  plugin that change the report directory-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <outputDirectory>${project.basedir}/test-output</outputDirectory>
+        </configuration>
+      </plugin>
+
+	</plugins>
+		<defaultGoal>install</defaultGoal>
+  		<directory>${project.basedir}/target</directory>
+  		<finalName>${project.artifactId}-${project.version}</finalName>
+<!--  <sourceDirectory>${SourceDirectory}/target/classes</sourceDirectory> -->		
+		<resources>
+			<resource>
+	<!-- 			<directory>${project.basedir}/resources</directory>  -->
+				<directory>${project.basedir}/resources</directory>
+			</resource>
+		</resources>
+	</build>
+	
+</project>
