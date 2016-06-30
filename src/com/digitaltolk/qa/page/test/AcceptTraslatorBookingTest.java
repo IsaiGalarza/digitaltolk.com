@@ -14,7 +14,7 @@ import com.digitaltolk.qa.common.digitaltolkBaseTestNGDeclaration;
 
 @SuppressWarnings("all")
 @Listeners({ /* com.selenium.listners.reportFactoryListner.class, */com.selenium.listners.oTestTestNGTestListener.class })
-public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration {
+public class AcceptTraslatorBookingTest extends digitaltolkBaseTestNGDeclaration {
 
 	static {
 		try {
@@ -29,10 +29,10 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		}
 	}
 
-	public CreateCustomerBookingTest() {
-		spreadsheet = new String("digitaltolk.dev.CreateCustomerBookingTest.testRunXLS");
-		workbook = new String("digitaltolk.dev.CreateCustomerBookingTest.testRunWorkSheet");
-		table = new String("digitaltolk.dev.CreateCustomerBookingTest.testRunTableLabel");
+	public AcceptTraslatorBookingTest() {
+		spreadsheet = new String("digitaltolk.dev.AcceptTraslatorBookingTest.testRunXLS");
+		workbook = new String("digitaltolk.dev.AcceptTraslatorBookingTest.testRunWorkSheet");
+		table = new String("digitaltolk.dev.AcceptTraslatorBookingTest.testRunTableLabel");
 	}
 
 	public void reportConfigurationSettings(String testName, String browser,
@@ -47,14 +47,14 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 	 * @param xlSheet
 	 *            - P0
 	 * @param xlTable
-	 *            - CreateCustomerBookingTest
+	 *            - AcceptTraslatorBookingTest
 	 * @return None.
 	 * @exception None.
 	 * @author ysaigalarza
 	 * @version 1.0
 	 */
-	@Test(enabled = true, groups = { "P0", "CreateCustomerBookingTest" }, dataProvider = "oTestBaseTestNGDeclarationDataProvider", description = "Create Booking")
-	public void createCustomerBookingTest(String testCount, String runTest,
+	@Test(enabled = true, groups = { "P0", "AcceptTraslatorBookingTest" }, dataProvider = "oTestBaseTestNGDeclarationDataProvider", description = "Accept Booking (Traslater)")
+	public void acceptTraslatorBookingTest(String testCount, String runTest,
 			String browser, String platform, String version, String remote,
 			String digitaltolkURL, String description,
 //			String client,, String clientAdmin, String freelancer, String freelancerAdmin,
@@ -71,13 +71,13 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		}
 		Reporter.log("created webDriver class");
 
-		driver = webDriver.createWebDriver(remote, version, platform, browser, "CreateCustomerBookingTest");
+		driver = webDriver.createWebDriver(remote, version, platform, browser, "AcceptTraslatorBookingTest");
 
 		if (driver == null) {
 			throw new SkipException("No Web Driver");
 		}
 
-		testName = new String("Start the CreateCustomerBookingTest on " + platform
+		testName = new String("Start the AcceptTraslatorBookingTest on " + platform
 				+ " using " + browser + " browser, version " + version);
 		reportConfigurationSettings(testName, browser, platform, version, remote);
 		Reporter.log("Step 1: Launch web browser (FireFox,IE, Chrome)");
@@ -105,7 +105,7 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		
 		Reporter.log("Step 6: Close Browser.", true);
 		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
-		Reporter.log("CreateCustomerBookingTest: Passed", true);
+		Reporter.log("AcceptTraslatorBookingTest: Passed", true);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.digitaltolk.qa.common;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.common.oTest.oTestWebDriverFactory;
+import com.digitaltolk.qa.page.declaration.AcceptTraslatorBookingPage;
 import com.digitaltolk.qa.page.declaration.CreateCustomerBookingPage;
 import com.digitaltolk.qa.page.declaration.LoginPage;
 import com.digitaltolk.qa.page.test.LoginPageTest;
@@ -17,6 +18,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	
 	private LoginPage loginPage = null;	
 	private CreateCustomerBookingPage createCustomerBookingPage = null;
+	private AcceptTraslatorBookingPage acceptTraslatorBookingPage = null;
 	
 	/**
 	 * digitaltolkWebDriverFactory() constructor
@@ -51,6 +53,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 		// Main Pages
 		loginPage = null;
 		createCustomerBookingPage = null;
+		acceptTraslatorBookingPage = null;
 	}
 	
 	/**
@@ -81,6 +84,21 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 		if (createCustomerBookingPage == null)
 			createCustomerBookingPage = new CreateCustomerBookingPage(driver);
 		return createCustomerBookingPage;
+	}
+	
+	/**
+	 * getAcceptTraslatorBookingPage Encapsulate the workPlaceLoginPage
+	 * @param None
+	 * @return AcceptTraslatorBookingPage
+	 * @exception None.
+	 * @author Mayank
+	 * @version 1.0
+	 */
+
+	public AcceptTraslatorBookingPage getAcceptTraslatorBookingPage() {
+		if (acceptTraslatorBookingPage == null)
+			acceptTraslatorBookingPage = new AcceptTraslatorBookingPage(driver);
+		return acceptTraslatorBookingPage;
 	}
 
 	/**
