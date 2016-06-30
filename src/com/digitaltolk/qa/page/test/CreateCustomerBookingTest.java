@@ -14,7 +14,7 @@ import com.digitaltolk.qa.common.digitaltolkBaseTestNGDeclaration;
 
 @SuppressWarnings("all")
 @Listeners({ /* com.selenium.listners.reportFactoryListner.class, */com.selenium.listners.oTestTestNGTestListener.class })
-public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
+public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration {
 
 	static {
 		try {
@@ -29,10 +29,10 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 		}
 	}
 
-	public LoginPageTest() {
-		spreadsheet = new String("digitaltolk.dev.LoginPageTest.testRunXLS");
-		workbook = new String("digitaltolk.dev.LoginPageTest.testRunWorkSheet");
-		table = new String("digitaltolk.dev.LoginPageTest.testRunTableLabel");
+	public CreateCustomerBookingTest() {
+		spreadsheet = new String("digitaltolk.dev.CreateCustomerBookingTest.testRunXLS");
+		workbook = new String("digitaltolk.dev.CreateCustomerBookingTest.testRunWorkSheet");
+		table = new String("digitaltolk.dev.CreateCustomerBookingTest.testRunTableLabel");
 	}
 
 	public void reportConfigurationSettings(String testName, String browser,
@@ -42,7 +42,7 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 	}
 
 	/**
-	 * Title: LoginPageTest
+	 * Title: CreateCustomerBookingTest
 	 * 
 	 * @param xlSheet
 	 *            - P0
@@ -53,15 +53,15 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 	 * @author ysaigalarza
 	 * @version 1.0
 	 */
-	@Test(enabled = true, groups = { "P0", "LoginPageTest" }, dataProvider = "oTestBaseTestNGDeclarationDataProvider", description = "Login Page")
-	public void loginPageTest(String testCount, String runTest,
+	@Test(enabled = true, groups = { "P0", "CreateCustomerBookingTest" }, dataProvider = "oTestBaseTestNGDeclarationDataProvider", description = "Create Booking")
+	public void createCustomerBookingTest(String testCount, String runTest,
 			String browser, String platform, String version, String remote,
 			String digitaltolkURL, String description,
 //			String client,, String clientAdmin, String freelancer, String freelancerAdmin,
 //			String password, String secretAnswer1, String secretAnswer2,
 			String xlFile, String xlSheet, String xlTable) {
 
-		// TASK ="QA-001";
+		// TASK ="QA-002";
 		if (runTest.toLowerCase().contains("no")) {
 			throw new SkipException("Skip");
 		}
@@ -71,13 +71,13 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 		}
 		Reporter.log("created webDriver class");
 
-		driver = webDriver.createWebDriver(remote, version, platform, browser, "LoginPageTest");
+		driver = webDriver.createWebDriver(remote, version, platform, browser, "CreateCustomerBookingTest");
 
 		if (driver == null) {
 			throw new SkipException("No Web Driver");
 		}
 
-		testName = new String("Start the LoginPageTest on " + platform
+		testName = new String("Start the CreateCustomerBookingTest on " + platform
 				+ " using " + browser + " browser, version " + version);
 		reportConfigurationSettings(testName, browser, platform, version, remote);
 		Reporter.log("Step 1: Launch web browser (FireFox,IE, Chrome)");
@@ -92,14 +92,20 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 		webDriver.getLoginPage().login("isai.galarza@gmail.com", password);
 		Reporter.log("Step 4:Log in with user", true);
 		
-		Reporter.log("Step 5:Open Web Page " + webDriver.getLoginPage().pageURL, true);
+		Reporter.log("Step 5:Open Web Page " + webDriver.getCreateCustomerBookingPage().pageURL, true);
 		
-		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getLoginPage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Home page");
+		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getCreateCustomerBookingPage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Home page");
 		Reporter.log("Expect 1:Verified Home Page : URL Home Page", true);
+		
+		/*
+		 * 
+		 *  HERE CODE TO 
+		 * 
+		 */
 		
 		Reporter.log("Step 6: Close Browser.", true);
 		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
-		Reporter.log("Login Check: Passed", true);
+		Reporter.log("CreateCustomerBookingTest: Passed", true);
 	}
 
 }

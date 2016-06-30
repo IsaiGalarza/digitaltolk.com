@@ -3,7 +3,7 @@ package com.digitaltolk.qa.common;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.common.oTest.oTestWebDriverFactory;
-
+import com.digitaltolk.qa.page.declaration.CreateCustomerBookingPage;
 import com.digitaltolk.qa.page.declaration.LoginPage;
 import com.digitaltolk.qa.page.test.LoginPageTest;
 
@@ -16,6 +16,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	// Main Pages
 	
 	private LoginPage loginPage = null;	
+	private CreateCustomerBookingPage createCustomerBookingPage = null;
 	
 	/**
 	 * digitaltolkWebDriverFactory() constructor
@@ -49,7 +50,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	private void cleanWebDriver() {
 		// Main Pages
 		loginPage = null;
-		
+		createCustomerBookingPage = null;
 	}
 	
 	/**
@@ -65,6 +66,21 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 		if (loginPage == null)
 			loginPage = new LoginPage(driver);
 		return loginPage;
+	}
+	
+	/**
+	 * getCreateCustomerBookingPage Encapsulate the workPlaceLoginPage
+	 * @param None
+	 * @return workPlaceLoginPage
+	 * @exception None.
+	 * @author Mayank
+	 * @version 1.0
+	 */
+
+	public CreateCustomerBookingPage getCreateCustomerBookingPage() {
+		if (createCustomerBookingPage == null)
+			createCustomerBookingPage = new CreateCustomerBookingPage(driver);
+		return createCustomerBookingPage;
 	}
 
 	/**
