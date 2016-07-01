@@ -79,10 +79,23 @@
       <![CDATA[Step 12:Set Email Reference: testcustomer@gmail.com]]>
     </line>
     <line>
-      <![CDATA[Step 12:Set Evt referens: TEST]]>
+      <![CDATA[Step 13:Set Evt referens: TEST]]>
     </line>
     <line>
-      <![CDATA[Step 13:Click Skicka Bokning.]]>
+      <![CDATA[Step 14:Click Skicka Bokning.]]>
+    </line>
+    <line>
+      <![CDATA[Expect 2:Verified Message Confirmation Booking : ×
+Tolkning bokad.]]>
+    </line>
+    <line>
+      <![CDATA[Step 15: Close Browser.]]>
+    </line>
+    <line>
+      <![CDATA[sauceLab results: Local Web Driver]]>
+    </line>
+    <line>
+      <![CDATA[CreateCustomerBookingTest: Passed]]>
     </line>
     <line>
       <![CDATA[After Method, closed the browser page
@@ -100,7 +113,7 @@
       <![CDATA[After Suite...]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41816" started-at="2016-07-01T11:21:11Z" finished-at="2016-07-01T11:21:52Z">
+  <suite name="Default suite" duration-ms="37799" started-at="2016-07-01T12:28:02Z" finished-at="2016-07-01T12:28:40Z">
     <groups>
       <group name="P0">
         <method signature="CreateCustomerBookingTest.createCustomerBookingTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="createCustomerBookingTest" class="com.digitaltolk.qa.page.test.CreateCustomerBookingTest"/>
@@ -109,9 +122,9 @@
         <method signature="CreateCustomerBookingTest.createCustomerBookingTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="createCustomerBookingTest" class="com.digitaltolk.qa.page.test.CreateCustomerBookingTest"/>
       </group> <!-- CreateCustomerBookingTest -->
     </groups>
-    <test name="Default test" duration-ms="41816" started-at="2016-07-01T11:21:11Z" finished-at="2016-07-01T11:21:52Z">
+    <test name="Default test" duration-ms="37799" started-at="2016-07-01T12:28:02Z" finished-at="2016-07-01T12:28:40Z">
       <class name="com.digitaltolk.qa.page.test.CreateCustomerBookingTest">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="beforeSuite" is-config="true" duration-ms="24" started-at="2016-07-01T07:21:11Z" finished-at="2016-07-01T07:21:11Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="beforeSuite" is-config="true" duration-ms="25" started-at="2016-07-01T08:28:02Z" finished-at="2016-07-01T08:28:02Z">
           <reporter-output>
             <line>
               <![CDATA[Before Suite complete
@@ -120,7 +133,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="beforeClass" is-config="true" duration-ms="111" started-at="2016-07-01T07:21:11Z" finished-at="2016-07-01T07:21:11Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="beforeClass" is-config="true" duration-ms="134" started-at="2016-07-01T08:28:02Z" finished-at="2016-07-01T08:28:02Z">
           <reporter-output>
             <line>
               <![CDATA[BeforeClass complete...create oTestWebDriverFactory
@@ -129,7 +142,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2016-07-01T07:21:11Z" finished-at="2016-07-01T07:21:11Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2016-07-01T08:28:03Z" finished-at="2016-07-01T08:28:03Z">
           <reporter-output>
             <line>
               <![CDATA[Before Method...
@@ -137,7 +150,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="createCustomerBookingTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="createCustomerBookingTest" duration-ms="39159" started-at="2016-07-01T07:21:11Z" description="Create Booking" data-provider="oTestBaseTestNGDeclarationDataProvider" finished-at="2016-07-01T07:21:51Z">
+        <test-method status="PASS" signature="createCustomerBookingTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="createCustomerBookingTest" duration-ms="35110" started-at="2016-07-01T08:28:03Z" description="Create Booking" data-provider="oTestBaseTestNGDeclarationDataProvider" finished-at="2016-07-01T08:28:38Z">
           <params>
             <param index="0">
               <value>
@@ -254,14 +267,27 @@
               <![CDATA[Step 12:Set Email Reference: testcustomer@gmail.com]]>
             </line>
             <line>
-              <![CDATA[Step 12:Set Evt referens: TEST]]>
+              <![CDATA[Step 13:Set Evt referens: TEST]]>
             </line>
             <line>
-              <![CDATA[Step 13:Click Skicka Bokning.]]>
+              <![CDATA[Step 14:Click Skicka Bokning.]]>
+            </line>
+            <line>
+              <![CDATA[Expect 2:Verified Message Confirmation Booking : ×
+Tolkning bokad.]]>
+            </line>
+            <line>
+              <![CDATA[Step 15: Close Browser.]]>
+            </line>
+            <line>
+              <![CDATA[sauceLab results: Local Web Driver]]>
+            </line>
+            <line>
+              <![CDATA[CreateCustomerBookingTest: Passed]]>
             </line>
           </reporter-output>
         </test-method> <!-- createCustomerBookingTest -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterMethod" is-config="true" duration-ms="1916" started-at="2016-07-01T07:21:51Z" finished-at="2016-07-01T07:21:52Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterMethod" is-config="true" duration-ms="1907" started-at="2016-07-01T08:28:38Z" finished-at="2016-07-01T08:28:40Z">
           <reporter-output>
             <line>
               <![CDATA[After Method, closed the browser page
@@ -269,7 +295,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterClass" is-config="true" duration-ms="0" started-at="2016-07-01T07:21:52Z" finished-at="2016-07-01T07:21:52Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterClass" is-config="true" duration-ms="1" started-at="2016-07-01T08:28:40Z" finished-at="2016-07-01T08:28:40Z">
           <reporter-output>
             <line>
               <![CDATA[After Class...
@@ -277,7 +303,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterTest" is-config="true" duration-ms="1" started-at="2016-07-01T07:21:52Z" finished-at="2016-07-01T07:21:52Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterTest" is-config="true" duration-ms="1" started-at="2016-07-01T08:28:40Z" finished-at="2016-07-01T08:28:40Z">
           <reporter-output>
             <line>
               <![CDATA[After Test:....
@@ -285,7 +311,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterSuite" is-config="true" duration-ms="1" started-at="2016-07-01T07:21:53Z" finished-at="2016-07-01T07:21:53Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.digitaltolk.qa.page.test.CreateCustomerBookingTest@3c09711b]" name="afterSuite" is-config="true" duration-ms="1" started-at="2016-07-01T08:28:40Z" finished-at="2016-07-01T08:28:40Z">
           <reporter-output>
             <line>
               <![CDATA[After Suite...]]>

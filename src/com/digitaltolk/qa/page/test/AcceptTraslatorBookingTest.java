@@ -37,12 +37,12 @@ public class AcceptTraslatorBookingTest extends digitaltolkBaseTestNGDeclaration
 
 	public void reportConfigurationSettings(String testName, String browser,
 			String platform, String version, String remote) {
-		Reporter.log("Start the CheckProfileTest on " + platform + " using "
+		Reporter.log("Start the AcceptTraslatorBookingTest on " + platform + " using "
 				+ browser + " browser, version " + version, true);
 	}
 
 	/**
-	 * Title: CreateCustomerBookingTest
+	 * Title: AcceptTraslatorBookingTest
 	 * 
 	 * @param xlSheet
 	 *            - P0
@@ -82,17 +82,24 @@ public class AcceptTraslatorBookingTest extends digitaltolkBaseTestNGDeclaration
 		reportConfigurationSettings(testName, browser, platform, version, remote);
 		Reporter.log("Step 1: Launch web browser (FireFox,IE, Chrome)");
 
+		driver.manage().window().maximize();
+		
 		driver.get(digitaltolkURL);
+		driver.manage().deleteAllCookies();
 		Reporter.log("Step 2:Open Web Page " + digitaltolkURL, true);
 		
-		webDriver.getLoginPage().verifyFoundPageByURL(30, webDriver.getLoginPage().pageURL, "LoginPage");
+		webDriver.getLoginPage().verifyFoundPageByURL(20, webDriver.getLoginPage().pageURL, "LoginPage");
 		Reporter.log("Step 3:Verified load web page" + webDriver.getLoginPage().pageURL, true);
+				
+		webDriver.getLoginPage().clickLoggaInButton();
+		Reporter.log("Click Logga In Button", true);
 		
-		String password = webDriver.getPasswordVaultFactory().retreivePassword("password");
-		webDriver.getLoginPage().login("isai.galarza@gmail.com", password);
+		webDriver.getLoginPage().login("isai.galarza@gmail.com", "freddy");
 		Reporter.log("Step 4:Log in with user", true);
 		
-		Reporter.log("Step 5:Open Web Page " + webDriver.getCreateCustomerBookingPage().pageURL, true);
+		webDriver.getCustomerHomePage().verifyFoundPageByURL(20, webDriver.getCustomerHomePage().pageURL, "CustomerHomePage");
+		Reporter.log("Verified Customer Home Page.", true);
+		Reporter.log("Step 5:Open Customer Home Page " + driver.getCurrentUrl(), true);
 		
 		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getCreateCustomerBookingPage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Home page");
 		Reporter.log("Expect 1:Verified Home Page : URL Home Page", true);

@@ -3,18 +3,18 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.digitaltolk.qa.page.test.LoginPageTest">
+      <class name="com.digitaltolk.qa.page.test.CreateCustomerBookingTest">
         <methods>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
           <include name="afterMethod"/>
-          <include name="loginPageTest" invocation-numbers="0"/>
+          <include name="createCustomerBookingTest" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
           <include name="afterClass"/>
           <include name="afterTest"/>
         </methods>
-      </class> <!-- com.digitaltolk.qa.page.test.LoginPageTest -->
+      </class> <!-- com.digitaltolk.qa.page.test.CreateCustomerBookingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

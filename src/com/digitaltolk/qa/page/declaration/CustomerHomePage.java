@@ -39,6 +39,7 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 	private String modaluseremail = "modaluseremail";
 	private String modalreference = "modalreference";
 	private String modalEmailformbtn = "modalEmailformbtn";
+	private String messsageConfirmation = "messsageConfirmation";
 	
 	static ResourceBundle resources;
 	
@@ -313,11 +314,13 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 		try{
 //			waitForElementPresent(modaluseremail, 30);
 			WebElement element = findElement(modaluseremail);
-			//driver.findElement(By.xpath("//input[@id='edit-box-big' and @placeholder='Job Title *']")).click()
-//			WebDriverWait wait = new WebDriverWait(driver, timeout);
-//			WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(ByLocator(modaluseremail)));
-			
+			while(element.isDisplayed() == false){
+				Thread.sleep(2000);
+				System.out.println("element email isDisplayed....FALSE");
+			}
+			element.clear();
 			element.sendKeys(email);
+			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -338,7 +341,13 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 		try{
 //			waitForElementPresent(modalreference, 30);
 			WebElement element = findElement(modalreference);
+			while(element.isDisplayed() == false){
+				Thread.sleep(2000);
+				System.out.println("element reference isDisplayed....FALSE");
+			}
+			element.clear();
 			element.sendKeys(reference);
+			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -446,17 +455,46 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 	 */		
 	public void clickSkickaBokningButton(){
 		try{
-//			waitForElementPresent(translationLanguage, 20);
+			// waitForElementPresent(translationLanguage, 20);
+//			WebElement element = findElement(modalEmailformbtn);
+//			element.click();
+			// Actions actions = new Actions(driver);
+			// actions.moveToElement(element).click().perform();
+
 			WebElement element = findElement(modalEmailformbtn);
-			 element.click();
-//			Actions actions = new Actions(driver);
-//			actions.moveToElement(element).click().perform();
+			while (element.isDisplayed() == false) {
+				Thread.sleep(2000);
+				System.out.println("element butoon isDisplayed....FALSE");
+			}
+			element.click();
+			 
 		}catch (Exception e){
 			e.printStackTrace();
 		}
 	}
 	
-	
+	/**
+	 * This method get MesssageConfirmationText. <br>
+	 * 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @author ysaigalarza
+	 * @version 1.0
+	 */
+	public String getMesssageConfirmationText() {
+		try {
+			WebElement element = findElement(messsageConfirmation);
+			while (element.isDisplayed() == false) {
+				Thread.sleep(2000);
+				System.out.println("element messsageConfirmation isDisplayed....FALSE");
+			}
+			return element.getText();
+
+		} catch (Exception e) {
+			return "";
+		}
+	}
 	
 	
 	/**

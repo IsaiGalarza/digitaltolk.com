@@ -42,7 +42,7 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 
 	public void reportConfigurationSettings(String testName, String browser,
 			String platform, String version, String remote) {
-		Reporter.log("Start the CheckProfileTest on " + platform + " using "
+		Reporter.log("Start the CreateCustomerBookingTest on " + platform + " using "
 				+ browser + " browser, version " + version, true);
 	}
 
@@ -104,10 +104,7 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		
 		webDriver.getCustomerHomePage().verifyFoundPageByURL(20, webDriver.getCustomerHomePage().pageURL, "CustomerHomePage");
 		Reporter.log("Verified Customer Home Page.", true);
-		
-//		driver.navigate().to(webDriver.getCustomerHomePage().pageURL);
-		Reporter.log("Navigation to Home Page: " + webDriver.getCustomerHomePage().pageURL, true);
-		Reporter.log("Step 5:Open Web Page " + driver.getCurrentUrl(), true);
+		Reporter.log("Step 5:Open Customer Home Page " + driver.getCurrentUrl(), true);
 
 		Assert.assertEquals(driver.getTitle().trim().equals(webDriver.getCustomerHomePage().pageTitle.trim()), true);
 		Reporter.log("Expect 1:Verified Title Customer Home Page : " + driver.getTitle(), true);
@@ -137,24 +134,19 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 	    
 	    webDriver.getCustomerHomePage().enterUserEmailTextBox("testcustomer@gmail.com");
 	    Reporter.log("Step 12:Set Email Reference: " + "testcustomer@gmail.com" , true);
-	    
-//	    driver.switchTo().activeElement();
-	    webDriver.sleep(10);
-	    
-	    webDriver.getCustomerHomePage().enterReferenceTextBox("TEST");
-	    Reporter.log("Step 12:Set Evt referens: " + "TEST" , true);
-	    
-//	    driver.switchTo().activeElement();
-	    webDriver.sleep(10);
+
+	    webDriver.getCustomerHomePage().enterReferenceTextBox("ALIAS123");
+	    Reporter.log("Step 13:Set Evt referens: " + "TEST" , true);
 	    
 	    webDriver.getCustomerHomePage().clickSkickaBokningButton();
-	    Reporter.log("Step 13:Click Skicka Bokning." , true);
+	    Reporter.log("Step 14:Click Skicka Bokning." , true);
 	    
-	    webDriver.sleep(10);
-		
-//		Reporter.log("Step X: Close Browser.", true);
-//		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
-//		Reporter.log("CreateCustomerBookingTest: Passed", true);
+	    Assert.assertEquals(webDriver.getCustomerHomePage().getMesssageConfirmationText().contains("Tolkning bokad"), true);
+	    Reporter.log("Expect 2:Verified Message Confirmation Booking : " + webDriver.getCustomerHomePage().getMesssageConfirmationText(), true);
+	    
+		Reporter.log("Step 15: Close Browser.", true);
+		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
+		Reporter.log("CreateCustomerBookingTest: Passed", true);
 	}
 	
 	
