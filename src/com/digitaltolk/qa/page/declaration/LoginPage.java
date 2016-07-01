@@ -9,17 +9,18 @@ import java.util.ResourceBundle;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.common.oTest.oTestBasePageDeclaration;
 import com.common.oTest.oTestPasswordVault;
 import com.common.oTest.oTestSpreadSheetFactory;
-
 import com.digitaltolk.qa.common.digitaltolkWebDriverFactory;
 
 public class LoginPage extends oTestBasePageDeclaration {
 	
+	private String loggain = "loggain";
 	private String usernameTextBox = "usernameTextBox";
 	private String passwdTextBox = "passwdTextBox";
 	private String signInButton = "signInButton";
@@ -42,6 +43,8 @@ public class LoginPage extends oTestBasePageDeclaration {
 		try
 		{
 			resources = ResourceBundle.getBundle("digitaltolk.main.LoginPage",Locale.getDefault());
+			
+			
 		} catch (MissingResourceException mre) {
 			System.out.println("loginPage.properties not found: "+mre);
 			System.exit(0);
@@ -281,6 +284,8 @@ public class LoginPage extends oTestBasePageDeclaration {
 		}
 	}
 	
+	
+	
 	/**
 	 * This function demonstrates isSignInButtonEnabled().
 	 * <br>Function indicates if the signInButton is enabled
@@ -318,6 +323,41 @@ public class LoginPage extends oTestBasePageDeclaration {
 		}catch (Exception e){
 			return false;
 		}
+	}
+	
+	
+	
+	
+	/**
+	 * This function demonstrates clickLoggaInButton().
+	 * <br>Function to click the clickLoggaInButton
+	 * <br> 
+	 * @param None
+	 * @returns none.
+	 * @exception None.
+	 * @see oTestSpreadSheetFactory()
+	 * @author ysaigalarza
+	 * @version 1.0
+	 */		
+	public void clickLoggaInButton(){
+		
+		try{
+//			waitForElementPresent(translationLanguage, 20);
+			WebElement element = findElement(loggain);
+			element.click();
+//			Actions actions = new Actions(driver);
+//			actions.moveToElement(element).click().perform();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+//		
+//		try{
+//			WebElement element = findElement(loggain);
+//			element.click();
+//		}catch (Exception e){
+//			
+//		}
 	}
 	
 	/**

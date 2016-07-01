@@ -15,7 +15,7 @@ public class SampleSauceTest {
   public static void main(String[] args) throws Exception {
  
     DesiredCapabilities caps = DesiredCapabilities.chrome();
-//    caps.setCapability("name", "Prueba Nombre");
+    caps.setCapability("name", "Pagina Google");
     caps.setCapability("platform", "Windows XP");
     caps.setCapability("version", "43.0");
  
@@ -25,7 +25,7 @@ public class SampleSauceTest {
      * Goes to Sauce Lab's guinea-pig page and prints title
      */
  
-    driver.get("https://saucelabs.com/test/guinea-pig");
+    driver.get("http://www.google.com");
     System.out.println("title of page is: " + driver.getTitle());
  
     driver.quit();

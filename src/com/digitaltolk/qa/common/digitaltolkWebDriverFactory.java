@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.common.oTest.oTestWebDriverFactory;
 import com.digitaltolk.qa.page.declaration.AcceptTraslatorBookingPage;
 import com.digitaltolk.qa.page.declaration.CreateCustomerBookingPage;
+import com.digitaltolk.qa.page.declaration.CustomerHomePage;
 import com.digitaltolk.qa.page.declaration.LoginPage;
 import com.digitaltolk.qa.page.test.LoginPageTest;
 
@@ -17,6 +18,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	// Main Pages
 	
 	private LoginPage loginPage = null;	
+	private CustomerHomePage customerHomePage = null;
 	private CreateCustomerBookingPage createCustomerBookingPage = null;
 	private AcceptTraslatorBookingPage acceptTraslatorBookingPage = null;
 	
@@ -57,11 +59,11 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	}
 	
 	/**
-	 * getworkPlaceLoginPage() Encapsulate the workPlaceLoginPage
+	 * getLoginPage() Encapsulate the workPlaceLoginPage
 	 * @param None
 	 * @return workPlaceLoginPage
 	 * @exception None.
-	 * @author Mayank
+	 * @author ysaigalarza
 	 * @version 1.0
 	 */
 
@@ -72,11 +74,27 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	}
 	
 	/**
+	 * getworkPlaceLoginPage() Encapsulate the workPlaceLoginPage
+	 * @param None
+	 * @return workPlaceLoginPage
+	 * @exception None.
+	 * @author ysaigalarza
+	 * @version 1.0
+	 */
+	public CustomerHomePage getCustomerHomePage() {
+		if (customerHomePage == null)
+			customerHomePage = new CustomerHomePage(driver);
+		return customerHomePage;
+	}
+	
+	
+	
+	/**
 	 * getCreateCustomerBookingPage Encapsulate the workPlaceLoginPage
 	 * @param None
 	 * @return workPlaceLoginPage
 	 * @exception None.
-	 * @author Mayank
+	 * @author ysaigalarza
 	 * @version 1.0
 	 */
 
@@ -91,7 +109,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	 * @param None
 	 * @return AcceptTraslatorBookingPage
 	 * @exception None.
-	 * @author Mayank
+	 * @author ysaigalarza
 	 * @version 1.0
 	 */
 

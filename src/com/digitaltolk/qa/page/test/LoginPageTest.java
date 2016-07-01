@@ -76,20 +76,26 @@ public class LoginPageTest extends digitaltolkBaseTestNGDeclaration {
 		if (driver == null) {
 			throw new SkipException("No Web Driver");
 		}
-
+		
+		driver.manage().window().maximize();
+		
 		testName = new String("Start the LoginPageTest on " + platform
 				+ " using " + browser + " browser, version " + version);
 		reportConfigurationSettings(testName, browser, platform, version, remote);
 		Reporter.log("Step 1: Launch web browser (FireFox,IE, Chrome)");
 
 		driver.get(digitaltolkURL);
+//		driver.manage().deleteAllCookies();
 		Reporter.log("Step 2:Open Web Page " + digitaltolkURL, true);
 		
 		webDriver.getLoginPage().verifyFoundPageByURL(30, webDriver.getLoginPage().pageURL, "LoginPage");
 		Reporter.log("Step 3:Verified load web page" + webDriver.getLoginPage().pageURL, true);
 		
-		String password = webDriver.getPasswordVaultFactory().retreivePassword("password");
-		webDriver.getLoginPage().login("isai.galarza@gmail.com", password);
+		webDriver.getLoginPage().clickLoggaInButton();
+		Reporter.log("Click Logga In Button", true);
+		
+//		String password = webDriver.getPasswordVaultFactory().retreivePassword("password");
+		webDriver.getLoginPage().login("isai.galarza@gmail.com", "freddy");
 		Reporter.log("Step 4:Log in with user", true);
 		
 		Reporter.log("Step 5:Open Web Page " + webDriver.getLoginPage().pageURL, true);

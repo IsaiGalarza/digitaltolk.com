@@ -5,8 +5,10 @@
     <classes>
       <class name="com.digitaltolk.qa.page.test.LoginPageTest">
         <methods>
+          <include name="beforeMethod"/>
           <include name="beforeClass"/>
-          <include name="loginPageTest"/>
+          <include name="afterMethod"/>
+          <include name="loginPageTest" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
           <include name="afterClass"/>

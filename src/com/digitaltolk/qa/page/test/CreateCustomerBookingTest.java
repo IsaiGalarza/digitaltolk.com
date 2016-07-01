@@ -4,6 +4,11 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.Listeners;
@@ -81,31 +86,77 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 				+ " using " + browser + " browser, version " + version);
 		reportConfigurationSettings(testName, browser, platform, version, remote);
 		Reporter.log("Step 1: Launch web browser (FireFox,IE, Chrome)");
-
+		
+		driver.manage().window().maximize();
+		
 		driver.get(digitaltolkURL);
+		driver.manage().deleteAllCookies();
 		Reporter.log("Step 2:Open Web Page " + digitaltolkURL, true);
 		
-		webDriver.getLoginPage().verifyFoundPageByURL(30, webDriver.getLoginPage().pageURL, "LoginPage");
+		webDriver.getLoginPage().verifyFoundPageByURL(20, webDriver.getLoginPage().pageURL, "LoginPage");
 		Reporter.log("Step 3:Verified load web page" + webDriver.getLoginPage().pageURL, true);
+				
+		webDriver.getLoginPage().clickLoggaInButton();
+		Reporter.log("Click Logga In Button", true);
 		
-		String password = webDriver.getPasswordVaultFactory().retreivePassword("password");
-		webDriver.getLoginPage().login("isai.galarza@gmail.com", password);
+		webDriver.getLoginPage().login("testcustomer@gmail.com", "testcustomer");
 		Reporter.log("Step 4:Log in with user", true);
 		
-		Reporter.log("Step 5:Open Web Page " + webDriver.getCreateCustomerBookingPage().pageURL, true);
+		webDriver.getCustomerHomePage().verifyFoundPageByURL(20, webDriver.getCustomerHomePage().pageURL, "CustomerHomePage");
+		Reporter.log("Verified Customer Home Page.", true);
 		
-		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getCreateCustomerBookingPage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Home page");
-		Reporter.log("Expect 1:Verified Home Page : URL Home Page", true);
-		
-		/*
-		 * 
-		 *  HERE CODE TO 
-		 * 
-		 */
-		
-		Reporter.log("Step 6: Close Browser.", true);
-		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
-		Reporter.log("CreateCustomerBookingTest: Passed", true);
-	}
+//		driver.navigate().to(webDriver.getCustomerHomePage().pageURL);
+		Reporter.log("Navigation to Home Page: " + webDriver.getCustomerHomePage().pageURL, true);
+		Reporter.log("Step 5:Open Web Page " + driver.getCurrentUrl(), true);
 
+		Assert.assertEquals(driver.getTitle().trim().equals(webDriver.getCustomerHomePage().pageTitle.trim()), true);
+		Reporter.log("Expect 1:Verified Title Customer Home Page : " + driver.getTitle(), true);
+		
+		//CODE SS
+		webDriver.getCustomerHomePage().clickTranslationLanguage();
+		webDriver.getCustomerHomePage().enterTranslationLanguageTextBox("Spanska");
+		Reporter.log("Step 6:Set  Translation Language Booking: " + "Spanska", true);
+		
+		webDriver.getCustomerHomePage().setupDataPicker();
+		Reporter.log("Step 7:Setup DataPicker Booking: " , true);
+		
+		webDriver.getCustomerHomePage().setTimepicker("12:00");
+	    Reporter.log("Step 8:Set Hourly Booking: " + "12:00" , true);
+	    
+	    webDriver.getCustomerHomePage().setDuration("30 min");
+	    Reporter.log("Step 9:Set Duration Booking: " + "30 Min" , true);
+	    
+	    webDriver.getCustomerHomePage().clickCustomerPhoneType();
+	    Reporter.log("Step 10:Check CustomerPhoneType." , true);
+	    
+	    webDriver.getCustomerHomePage().clickSubmitRequestBooking();
+	    Reporter.log("Step 11:Click Submit Request Booking." , true);
+	    
+	    webDriver.getCustomerHomePage().verifyFoundPageByURL(20, webDriver.getCustomerHomePage().pageURL, "CustomerHomePage");
+		Reporter.log("Verified Customer Home Page.", true);
+	    
+	    webDriver.getCustomerHomePage().enterUserEmailTextBox("testcustomer@gmail.com");
+	    Reporter.log("Step 12:Set Email Reference: " + "testcustomer@gmail.com" , true);
+	    
+//	    driver.switchTo().activeElement();
+	    webDriver.sleep(10);
+	    
+	    webDriver.getCustomerHomePage().enterReferenceTextBox("TEST");
+	    Reporter.log("Step 12:Set Evt referens: " + "TEST" , true);
+	    
+//	    driver.switchTo().activeElement();
+	    webDriver.sleep(10);
+	    
+	    webDriver.getCustomerHomePage().clickSkickaBokningButton();
+	    Reporter.log("Step 13:Click Skicka Bokning." , true);
+	    
+	    webDriver.sleep(10);
+		
+//		Reporter.log("Step X: Close Browser.", true);
+//		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
+//		Reporter.log("CreateCustomerBookingTest: Passed", true);
+	}
+	
+	
+	
 }
