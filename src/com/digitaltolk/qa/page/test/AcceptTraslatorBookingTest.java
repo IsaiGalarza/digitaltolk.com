@@ -97,18 +97,17 @@ public class AcceptTraslatorBookingTest extends digitaltolkBaseTestNGDeclaration
 		webDriver.getLoginPage().login("isai.galarza@gmail.com", "freddy");
 		Reporter.log("Step 4:Log in with user", true);
 		
-		webDriver.getCustomerHomePage().verifyFoundPageByURL(20, webDriver.getCustomerHomePage().pageURL, "CustomerHomePage");
-		Reporter.log("Verified Customer Home Page.", true);
-		Reporter.log("Step 5:Open Customer Home Page " + driver.getCurrentUrl(), true);
+	
+		webDriver.getTranslatorHomePage().verifyFoundPageByURL(20, webDriver.getTranslatorHomePage().pageURL, "TranslatorHomePage");
+		Reporter.log("Verified Traslator Home Page.", true);
+		Reporter.log("Step 5:Open Traslator Home Page " + driver.getCurrentUrl(), true);
 		
-		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getCreateCustomerBookingPage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Home page");
-		Reporter.log("Expect 1:Verified Home Page : URL Home Page", true);
+		webDriver.ASSERT_TRUE((driver.getCurrentUrl().contains(webDriver.getTranslatorHomePage().pageURL)), "Expected 1. Verified Redirect to http://dev.digitaltolk.com/ Home Page", "redirected to Traslator Home page");
+		Reporter.log("Expect 1:Verified Traslator Home Page : URL Home Page", true);
 		
-		/*
-		 * 
-		 *  HERE CODE TO 
-		 * 
-		 */
+		//CODE
+		webDriver.getTranslatorHomePage().acceptFirstBooking();
+		Reporter.log("Step 6: Accept Firts Booking.", true);
 		
 		Reporter.log("Step 6: Close Browser.", true);
 		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);

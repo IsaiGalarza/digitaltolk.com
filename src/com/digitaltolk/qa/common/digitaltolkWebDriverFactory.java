@@ -7,6 +7,7 @@ import com.digitaltolk.qa.page.declaration.AcceptTraslatorBookingPage;
 import com.digitaltolk.qa.page.declaration.CreateCustomerBookingPage;
 import com.digitaltolk.qa.page.declaration.CustomerHomePage;
 import com.digitaltolk.qa.page.declaration.LoginPage;
+import com.digitaltolk.qa.page.declaration.TranslatorHomePage;
 import com.digitaltolk.qa.page.test.LoginPageTest;
 
 @SuppressWarnings({"all"}) 
@@ -19,6 +20,7 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	
 	private LoginPage loginPage = null;	
 	private CustomerHomePage customerHomePage = null;
+	private TranslatorHomePage translatorHomePage = null;
 	private CreateCustomerBookingPage createCustomerBookingPage = null;
 	private AcceptTraslatorBookingPage acceptTraslatorBookingPage = null;
 	
@@ -54,6 +56,8 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 	private void cleanWebDriver() {
 		// Main Pages
 		loginPage = null;
+		customerHomePage = null;
+		translatorHomePage = null;
 		createCustomerBookingPage = null;
 		acceptTraslatorBookingPage = null;
 	}
@@ -85,6 +89,20 @@ public class digitaltolkWebDriverFactory extends digitaltolkWebDriver {
 		if (customerHomePage == null)
 			customerHomePage = new CustomerHomePage(driver);
 		return customerHomePage;
+	}
+	
+	/**
+	 * getTranslatorHomePage() Encapsulate the translatorHomePage
+	 * @param None
+	 * @return TranslatorHomePage
+	 * @exception None.
+	 * @author ysaigalarza
+	 * @version 1.0
+	 */
+	public TranslatorHomePage getTranslatorHomePage() {
+		if (translatorHomePage == null)
+			translatorHomePage = new TranslatorHomePage(driver);
+		return translatorHomePage;
 	}
 	
 	

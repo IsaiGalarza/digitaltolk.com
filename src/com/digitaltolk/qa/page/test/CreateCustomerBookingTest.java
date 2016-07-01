@@ -1,5 +1,7 @@
 package com.digitaltolk.qa.page.test;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -45,7 +47,10 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		Reporter.log("Start the CreateCustomerBookingTest on " + platform + " using "
 				+ browser + " browser, version " + version, true);
 	}
-
+	
+	
+	private int month;
+	
 	/**
 	 * Title: CreateCustomerBookingTest
 	 * 
@@ -114,7 +119,7 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		webDriver.getCustomerHomePage().enterTranslationLanguageTextBox("Spanska");
 		Reporter.log("Step 6:Set  Translation Language Booking: " + "Spanska", true);
 		
-		webDriver.getCustomerHomePage().setupDataPicker();
+		webDriver.getCustomerHomePage().setupDataPicker(new Date(), webDriver.getCustomerHomePage().getDayPlus());
 		Reporter.log("Step 7:Setup DataPicker Booking: " , true);
 		
 		webDriver.getCustomerHomePage().setTimepicker("12:00");
@@ -148,7 +153,5 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		Reporter.log("sauceLab results: " + webDriver.obtainTestStatusInformation(), true);
 		Reporter.log("CreateCustomerBookingTest: Passed", true);
 	}
-	
-	
 	
 }
