@@ -104,7 +104,7 @@ public class CreateCustomerBookingTest extends digitaltolkBaseTestNGDeclaration 
 		webDriver.getLoginPage().clickLoggaInButton();
 		Reporter.log("Click Logga In Button", true);
 		
-		webDriver.getLoginPage().login("testcustomer@gmail.com", "testcustomer");
+		webDriver.getLoginPage().login(webDriver.getCustomerHomePage().getCredentialEmail(), webDriver.getCustomerHomePage().getCredentialPassword());
 		Reporter.log("Step 4:Log in with user", true);
 		
 		webDriver.getCustomerHomePage().verifyFoundPageByURL(20, webDriver.getCustomerHomePage().pageURL, "CustomerHomePage");

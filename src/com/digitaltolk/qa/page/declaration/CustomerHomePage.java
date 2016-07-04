@@ -46,7 +46,11 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 	private String modalEmailformbtn = "modalEmailformbtn";
 	private String messsageConfirmation = "messsageConfirmation";
 	
+	//Setup Test Case
+	private String credentialEmail;
+	private String credentialPassword;
 	private int dayPlus = 0;
+	
 	
 	static ResourceBundle resources;
 
@@ -75,6 +79,8 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 		
 		//Setup Test Case
 		dayPlus = new Integer(resources.getString("dayPlus"));
+		credentialEmail = resources.getString("credentialEmail");
+		credentialPassword = resources.getString("credentialPassword");
 	}
 
 	/**
@@ -681,6 +687,22 @@ public class CustomerHomePage extends oTestBasePageDeclaration {
 
 	public void setDayPlus(int dayPlus) {
 		this.dayPlus = dayPlus;
+	}
+
+	public String getCredentialEmail() {
+		return credentialEmail;
+	}
+
+	public void setCredentialEmail(String credentialEmail) {
+		this.credentialEmail = credentialEmail;
+	}
+
+	public String getCredentialPassword() {
+		return credentialPassword;
+	}
+
+	public void setCredentialPassword(String credentialPassword) {
+		this.credentialPassword = credentialPassword;
 	}
 
 	/**
